@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      background-image: url('noise.png');
+      background-size: 200px 200px;
+      background-repeat: repeat;
+      color: #f5f5f5;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      padding-top: 80px;
+    }
+    input {
+      background: #000;
+      border: 1px solid #444;
+      color: #f5f5f5;
+      padding: 8px 10px;
+      letter-spacing: 0.2em;
+      width: 220px;
+      text-align: center;
+    }
+    button {
+      margin-top: 14px;
+      padding: 8px 22px;
+      border: 1px solid #f5f5f5;
+      background: #000;
+      color: #f5f5f5;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #111;
+    }
+    .error {
+      color: #c66;
+      margin-top: 10px;
+      height: 14px;
+      font-size: 11px;
+    }
+    a {
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="letter-spacing:0.25em; text-transform:uppercase; font-size:16px;">Secret Vault</h1>
+  <p style="opacity:0.7; max-width:500px; margin:0 auto 20px;">
+    Enter code. Each person has a unique code. 
+  </p>
+
+  <form id="vault-form">
+    <input type="password" id="vault-input" autocomplete="off" />
+    <br />
+    <button type="submit">Enter</button>
+    <div id="vault-error" class="error"></div>
+  </form>
+
+  <p style="margin-top:40px;">
+    <a href="index.html">return</a>
+  </p>
+
+  <script>
+    (function(){
+      var form = document.getElementById('vault-form');
+      var input = document.getElementById('vault-input');
+      var error = document.getElementById('vault-error');
+
+      // harvey -> h0x9a1q.html , neal -> n12_x9.html , stafford -> sff_77.html
+      var encoded = "aGFydmV5OmgweDlhMXEuaHRtbCxuZWFsOm4xMl94OS5odG1sLHN0YWZmb3JkOnNmZl83Ny5odG1s";
+      var decoded = atob(encoded);
+      var routes = {};
+      decoded.split(',').forEach(function(p){
+        var s = p.split(':');
+        routes[s[0]] = s[1];
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var v = (input.value || "").trim().toLowerCase();
+        if (routes[v]) {
+          window.location.href = routes[v];
+        } else {
+          error.textContent = "access denied.";
+          input.value = "";
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
