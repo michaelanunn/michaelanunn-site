@@ -78,7 +78,10 @@ Each person has a unique code.
       var input = document.getElementById('vault-input');
       var error = document.getElementById('vault-error');
 
-      // harvey -> h0x9a1q.html , neal -> n12_x9.html , stafford -> sff_77.html
+      // decode mapping 
+      //harvey:h0x9a1q.html,neal:n12_x9.html,stafford:sff_77.html,conversation:cw_55.html,lihawa:l_hw8.html
+      // console tab and btoa("harvey:h0x9a1q.html,neal:n12_x9.html,stafford:sff_77.html")
+
       var encoded = "aGFydmV5OmgweDlhMXEuaHRtbCxuZWFsOm4xMl94OS5odG1sLHN0YWZmb3JkOnNmZl83Ny5odG1s";
       var decoded = atob(encoded);
       var routes = {};
