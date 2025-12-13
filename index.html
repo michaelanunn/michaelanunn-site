@@ -4,13 +4,12 @@ DEPLOYMENT NOTES
 ===============================
 
 git add .
-git commit -m "edits to index.html"
+git commit -m "edits to index.html but there is no deeper meaning"
 git push
 
 
 ===========================
 -->
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,7 +21,7 @@ git push
       name="description"
       content="Personal index of Michaela Nunn – projects, life canon, and links."
     />
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <style>
       * {
         box-sizing: border-box;
@@ -158,7 +157,7 @@ git push
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
+
         background-color: rgba(5, 5, 5, 0.9);
         transition: transform 120ms ease-out, box-shadow 120ms ease-out,
           border-color 120ms ease-out;
@@ -271,14 +270,34 @@ git push
         z-index: 6;
         opacity: 0.95;
       }
-      .carousel-arrow:focus { outline: none; box-shadow: none; }
-      .carousel-arrow:active { outline: none; box-shadow: none; }
-      .carousel-arrow::-moz-focus-inner { border: 0; }
-      .carousel-arrow, .carousel-arrow * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
-      .carousel-arrow { -webkit-tap-highlight-color: transparent; appearance: none; }
+      .carousel-arrow:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      .carousel-arrow:active {
+        outline: none;
+        box-shadow: none;
+      }
+      .carousel-arrow::-moz-focus-inner {
+        border: 0;
+      }
+      .carousel-arrow,
+      .carousel-arrow * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .carousel-arrow {
+        -webkit-tap-highlight-color: transparent;
+        appearance: none;
+      }
 
       /* remove tap highlight on track */
-      .carousel-track, .carousel-item { -webkit-tap-highlight-color: transparent; }
+      .carousel-track,
+      .carousel-item {
+        -webkit-tap-highlight-color: transparent;
+      }
 
       .carousel-arrow.prev {
         left: 8px;
@@ -343,7 +362,6 @@ git push
         nav {
           letter-spacing: 0.14em;
         }
-        
       }
     </style>
   </head>
@@ -351,7 +369,7 @@ git push
     <div class="page">
       <header id="home">
         <div class="header-inner">
-          <link rel="icon" href="favicon.ico" type="image/x-icon">
+          <link rel="icon" href="favicon.ico" type="image/x-icon" />
           <div class="site-title">Michaela Nunn</div>
           <div class="halo"></div>
 
@@ -362,9 +380,7 @@ git push
             <a href="#socials">Socials</a>
           </nav>
 
-          <p class="intro">
-            Connecting dots 
-          </p>
+          <p class="intro">you know it</p>
         </div>
       </header>
 
@@ -407,30 +423,31 @@ git push
               Pronia
             </a>
             <span class="meta"
-              >Every practice session remembered, every milestone shared, every musician connected
-</span
-            >
+              >Every practice session remembered, every milestone shared, every
+              musician connected
+            </span>
           </li>
           <li class="bullet">
             <a href="https://speakstreak.app" target="_blank" rel="noopener">
               SpeakStreak
             </a>
             <span class="meta"
-              >Daily voice practice that reveals the speaker you're becoming</span
+              >Daily voice practice that reveals the speaker you're
+              becoming</span
             >
           </li>
-           <li class="bullet">
+          <li class="bullet">
             <a href="https://lexiconation.app" target="_blank" rel="noopener">
               Lexiconation
             </a>
             <span class="meta"
-              >Your vocabulary, curated and alive in a community of word collectors
-</span
-            >
+              >Your vocabulary, curated and alive in a community of word
+              collectors
+            </span>
           </li>
         </ul>
       </section>
-<!--
+      <!--
       
 
 
@@ -441,7 +458,7 @@ git push
       <section id="canon">
         <h2>Life Canon. Time is not linear. Inflection points</h2>
         <p style="font-size: 12px; opacity: 0.8; max-width: 640px">
-          Man does not step into the same river twice. 
+          Man does not step into the same river twice.
         </p>
         <!-- Carousel where the black .canon-item containers are the slides -->
         <div class="carousel" aria-label="Life canon carousel">
@@ -450,9 +467,7 @@ git push
             <div class="canon-item carousel-item">
               <div class="canon-top">
                 <div class="canon-title">What do you believe in?</div>
-                <div class="canon-note">
-                  leverage, judgment, compounding over decades
-                </div>
+                <div class="canon-note"></div>
               </div>
               <div class="canon-img">
                 <img src="canon/img1.jpg" alt="Naval's Almanack cover" />
@@ -471,18 +486,21 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Simulacra &amp; Simulation</div>
-                <div class="canon-note">signs, copies, and living inside the image</div>
+                <div class="canon-title">Systems </div>
+                <div class="canon-note"></div>
               </div>
               <div class="canon-img">
-                <img src="canon/img3.jpg" alt="Simulacra and Simulation cover" />
+                <img
+                  src="canon/img3.jpg"
+                  alt="Simulacra and Simulation cover"
+                />
               </div>
             </div>
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">tunnel vision</div>
-                <div class="canon-note">drop in another book / image that feels core</div>
+                <div class="canon-title">devoid of noise</div>
+                <div class="canon-note">silence</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img4.jpg" alt="slot" />
@@ -492,8 +510,8 @@ git push
             <!-- Filled additional slides cycling img4, img5, img6 -->
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 4</div>
-                <div class="canon-note">A short note for image 4</div>
+                <div class="canon-title">distraction</div>
+                <div class="canon-note"></div>
               </div>
               <div class="canon-img">
                 <img src="canon/img5.jpg" alt="Image 4" />
@@ -502,8 +520,8 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 5</div>
-                <div class="canon-note">A short note for image 5</div>
+                <div class="canon-title">Forgotten</div>
+                <div class="canon-note">Noxubee</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img6.jpg" alt="Image 5" />
@@ -512,8 +530,8 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 6</div>
-                <div class="canon-note">A short note for image 6</div>
+                <div class="canon-title">Rotten</div>
+                <div class="canon-note"></div>
               </div>
               <div class="canon-img">
                 <img src="canon/img7.jpg" alt="Image 6" />
@@ -522,8 +540,8 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 4</div>
-                <div class="canon-note">A short note for image 4</div>
+                <div class="canon-title">Decadence</div>
+                <div class="canon-note">consumerism</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img8.jpg" alt="Image 4" />
@@ -532,8 +550,8 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 5</div>
-                <div class="canon-note">A short note for image 5</div>
+                <div class="canon-title"><p>positiviity</p></div>
+                <div class="canon-note"></div>
               </div>
               <div class="canon-img">
                 <img src="canon/img9.jpg" alt="Image 5" />
@@ -542,8 +560,8 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 6</div>
-                <div class="canon-note">A short note for image 6</div>
+                <div class="canon-title">perception</div>
+                <div class="canon-note">We are all one</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img10.jpg" alt="Image 6" />
@@ -552,8 +570,8 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 4</div>
-                <div class="canon-note">A short note for image 4</div>
+                <div class="canon-title">Enlightenment</div>
+                <div class="canon-note">Kindness</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img11.jpg" alt="Image 4" />
@@ -563,7 +581,7 @@ git push
             <div class="canon-item carousel-item">
               <div class="canon-top">
                 <div class="canon-title">Vehicles</div>
-                <div class="canon-note">A short note for image 5</div>
+                <div class="canon-note">Last time or first time</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img12.jpg" alt="Image 5" />
@@ -572,8 +590,8 @@ git push
 
             <div class="canon-item carousel-item">
               <div class="canon-top">
-                <div class="canon-title">Image 6</div>
-                <div class="canon-note">A short note for image 6</div>
+                <div class="canon-title">Morality</div>
+                <div class="canon-note">Excellence</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img13.jpg" alt="Image 6" />
@@ -583,7 +601,7 @@ git push
             <div class="canon-item carousel-item">
               <div class="canon-top">
                 <div class="canon-title">Too Late</div>
-                <div class="canon-note">A short note for image 4</div>
+                <div class="canon-note">Oh well</div>
               </div>
               <div class="canon-img">
                 <img src="canon/img14.jpg" alt="Image 4" />
@@ -630,7 +648,14 @@ git push
 
       <section id="identity">
         <h2>Identity</h2>
-        <p style="font-size:13px; line-height:1.6; max-width:640px; opacity:0.8;">
+        <p
+          style="
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 640px;
+            opacity: 0.8;
+          "
+        >
           2007 August 15
         </p>
       </section>
@@ -722,7 +747,10 @@ git push
 
         // prepend clones of originals (in reverse order)
         for (var i = originalCount - 1; i >= 0; i--) {
-          track.insertBefore(originalSlides[i].cloneNode(true), track.firstChild);
+          track.insertBefore(
+            originalSlides[i].cloneNode(true),
+            track.firstChild
+          );
         }
 
         // start positioned at the first original slide
@@ -738,8 +766,12 @@ git push
         // prevent mouse/touch/pointer interactions from focusing the arrow buttons
         function preventPointerFocus(btn) {
           if (!btn) return;
-          btn.addEventListener('pointerdown', function (e) {
-            if (e.pointerType === 'mouse' || e.pointerType === 'pen' || e.pointerType === 'touch') {
+          btn.addEventListener("pointerdown", function (e) {
+            if (
+              e.pointerType === "mouse" ||
+              e.pointerType === "pen" ||
+              e.pointerType === "touch"
+            ) {
               e.preventDefault();
             }
           });
@@ -756,21 +788,28 @@ git push
         function scrollToIndex(i, behavior) {
           var iw = itemWidth();
           var target = (i + originalCount) * iw; // account for prepended clones
-          track.scrollTo({ left: Math.round(target), behavior: behavior || 'smooth' });
+          track.scrollTo({
+            left: Math.round(target),
+            behavior: behavior || "smooth",
+          });
         }
 
         // initial position
         currentIndex = 0;
-        setTimeout(function () { scrollToIndex(currentIndex, 'auto'); }, 60);
+        setTimeout(function () {
+          scrollToIndex(currentIndex, "auto");
+        }, 60);
 
-        prev && prev.addEventListener('click', function () {
-          currentIndex = normalizeIndex(currentIndex - 1);
-          scrollToIndex(currentIndex, 'smooth');
-        });
-        next && next.addEventListener('click', function () {
-          currentIndex = normalizeIndex(currentIndex + 1);
-          scrollToIndex(currentIndex, 'smooth');
-        });
+        prev &&
+          prev.addEventListener("click", function () {
+            currentIndex = normalizeIndex(currentIndex - 1);
+            scrollToIndex(currentIndex, "smooth");
+          });
+        next &&
+          next.addEventListener("click", function () {
+            currentIndex = normalizeIndex(currentIndex + 1);
+            scrollToIndex(currentIndex, "smooth");
+          });
 
         // pointer drag for mouse & touch
         var isDown = false;
@@ -778,38 +817,46 @@ git push
         var scrollLeft = 0;
         track.tabIndex = 0;
 
-        track.addEventListener('pointerdown', function (e) {
+        track.addEventListener("pointerdown", function (e) {
           isDown = true;
-          track.classList.add('dragging');
+          track.classList.add("dragging");
           startX = e.clientX;
           scrollLeft = track.scrollLeft;
-          try { track.setPointerCapture(e.pointerId); } catch (err) {}
+          try {
+            track.setPointerCapture(e.pointerId);
+          } catch (err) {}
         });
-        track.addEventListener('pointermove', function (e) {
+        track.addEventListener("pointermove", function (e) {
           if (!isDown) return;
           var x = e.clientX;
           var walk = startX - x;
           track.scrollLeft = scrollLeft + walk;
         });
-        track.addEventListener('pointerup', function (e) {
+        track.addEventListener("pointerup", function (e) {
           isDown = false;
-          track.classList.remove('dragging');
-          try { track.releasePointerCapture(e.pointerId); } catch (err) {}
+          track.classList.remove("dragging");
+          try {
+            track.releasePointerCapture(e.pointerId);
+          } catch (err) {}
         });
-        track.addEventListener('pointerleave', function () {
+        track.addEventListener("pointerleave", function () {
           isDown = false;
-          track.classList.remove('dragging');
+          track.classList.remove("dragging");
         });
 
         // keyboard support
-        track.addEventListener('keydown', function (e) {
-          if (e.key === 'ArrowRight') { next && next.click(); }
-          if (e.key === 'ArrowLeft') { prev && prev.click(); }
+        track.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowRight") {
+            next && next.click();
+          }
+          if (e.key === "ArrowLeft") {
+            prev && prev.click();
+          }
         });
 
         // update currentIndex on scroll, and handle clone-region adjustments after scrolling stops
         var scrollEndTimeout = null;
-        track.addEventListener('scroll', function () {
+        track.addEventListener("scroll", function () {
           // update current index roughly
           var iw = itemWidth();
           var rawIndex = Math.round(track.scrollLeft / iw) - originalCount;
@@ -819,16 +866,16 @@ git push
           if (scrollEndTimeout) clearTimeout(scrollEndTimeout);
           scrollEndTimeout = setTimeout(function () {
             // ensure we're snapped exactly to the index
-            scrollToIndex(currentIndex, 'smooth');
+            scrollToIndex(currentIndex, "smooth");
 
             // if we're in cloned region (due to momentum), jump invisibly to original
             var left = track.scrollLeft;
             var start = iw * originalCount;
             var end = iw * (originalCount * 2);
-            if (left < start - iw/2) {
+            if (left < start - iw / 2) {
               // jumped into prepended clones
               track.scrollLeft = left + iw * originalCount;
-            } else if (left > end + iw/2) {
+            } else if (left > end + iw / 2) {
               // jumped into appended clones
               track.scrollLeft = left - iw * originalCount;
             }
@@ -839,15 +886,15 @@ git push
         function updateArrows() {
           if (!prev || !next) return;
           if (track.scrollWidth <= track.clientWidth + 1) {
-            prev.style.display = 'none';
-            next.style.display = 'none';
+            prev.style.display = "none";
+            next.style.display = "none";
           } else {
-            prev.style.display = 'flex';
-            next.style.display = 'flex';
+            prev.style.display = "flex";
+            next.style.display = "flex";
           }
         }
 
-        window.addEventListener('resize', updateArrows);
+        window.addEventListener("resize", updateArrows);
         updateArrows();
       })();
     </script>
