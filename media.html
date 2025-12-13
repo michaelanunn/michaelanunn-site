@@ -55,9 +55,9 @@
     .audio-bar {
       max-width:420px;
       margin: 10px auto 0;
-      padding: 6px 8px;
-      background: rgba(20,20,20,0.6);
-      border: 1px solid #222;
+      padding: 0;
+      background: transparent;
+      border: none;
     }
     .audio-bar audio {
       width:100%;
@@ -65,6 +65,65 @@
       outline:none;
       background:transparent;
     }
+    .audio-error {
+      color:#ff6b6b;
+      font-size:12px;
+      margin-top:6px;
+      display:none;
+    }
+    /* Modern player container */
+    .player-wrap {
+      max-width:420px;
+      margin:12px auto 0;
+      padding:10px;
+      border-radius:12px;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.04);
+      backdrop-filter: blur(6px);
+    }
+    .planet {
+      width:56px; height:56px; border-radius:50%; box-shadow: 0 6px 18px rgba(0,0,0,0.4) inset, 0 6px 20px rgba(0,0,0,0.6);
+      display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;
+    }
+    .planet::after{ content:''; position:absolute; inset:0; box-shadow: inset 0 10px 30px rgba(0,0,0,0.25); border-radius:50%; }
+    .planet.stripes::before{ content:''; position:absolute; inset:-10% -30%; transform:rotate(-20deg); background: repeating-linear-gradient(90deg, rgba(255,255,255,0.06) 0 6px, rgba(255,255,255,0.02) 6px 12px); opacity:0.8; }
+    .play-planet-btn{ border:none; background:transparent; padding:0; display:inline-flex; align-items:center; justify-content:center; cursor:pointer; width:56px; height:56px; }
+    .play-planet-btn:focus{ outline:2px solid rgba(150,200,255,0.18); }
+    .player-body{ flex:1; display:flex; flex-direction:column; gap:6px; }
+    .player-row{ display:flex; align-items:center; gap:12px; }
+    .track { height:8px; background: rgba(255,255,255,0.04); border-radius:8px; overflow:hidden; flex:1; }
+    .progress { height:100%; background: linear-gradient(90deg,var(--prog-start,#9be3ff),var(--prog-end,#4aa3ff)); width:0%; transition:width 120ms linear; }
+    .time { width:54px; text-align:right; font-size:12px; color:#cfeeff; }
+    .no-audio { color:rgba(255,255,255,0.35); font-size:13px; }
+    /* Custom space-themed player */
+    .player {
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+    .play-btn {
+      width:56px;
+      height:56px;
+      border-radius:50%;
+      border: none;
+      background: radial-gradient(circle at 30% 30%, #bfe9ff 0%, #6fb3ff 20%, #214b6b 70%);
+      box-shadow: 0 6px 18px rgba(100,150,255,0.12), 0 0 18px rgba(120,180,255,0.06) inset;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      cursor:pointer;
+      transition: transform 150ms ease, box-shadow 150ms ease;
+      padding:8px;
+    }
+    .play-btn:active { transform: translateY(1px) scale(0.98); }
+    .play-btn:hover { box-shadow: 0 10px 26px rgba(100,150,255,0.22), 0 0 30px rgba(120,180,255,0.08) inset; }
+    .play-btn .icon { width:28px; height:28px; fill:#06121a; }
+    .track { flex:1; height:8px; background: rgba(255,255,255,0.06); border-radius:8px; overflow:hidden; }
+    .progress { height:100%; background: linear-gradient(90deg,#9be3ff,#4aa3ff); width:0%; }
+    .time { width:48px; text-align:right; font-size:12px; color:#cfeeff; }
     .line {
       height:1px;
       background:#333;
@@ -82,22 +141,10 @@
     <div class="frame">
       <img src="media/img1.jpg" alt="media 1" />
     </div>
-    <div class="audio-bar">
-      <audio controls preload="none">
-        <source src="media/audio1.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
     <div class="line"></div>
 
     <div class="frame">
       <img src="media/img2.jpg" alt="media 2" />
-    </div>
-    <div class="audio-bar">
-      <audio controls preload="none">
-        <source src="media/lyrical-me-piano.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
     </div>
     <div class="line"></div>
 
@@ -160,7 +207,7 @@
 
     <div class="line"></div>
       <div class="frame">
-      <img src="media/img15.jpeg" alt="media 15" />
+      <img src="media/img15.jpg" alt="media 15" />
     </div>
 
     <div class="line"></div>
@@ -176,5 +223,75 @@
 
     <div class="line"></div>
   </div>
+  <script>
+    (function(){
+      var frames = Array.from(document.querySelectorAll('.frame'));
+      var planets = [
+        {name:'Mercury', prog:['#ff9a8b','#ff6b5a'], bg:'linear-gradient(180deg,#6b2a1a,#a33d2a)'},
+        {name:'Venus', prog:['#ffd97a','#ffc93a'], bg:'linear-gradient(180deg,#f6e27a,#ffcc33)', stripes:true},
+        {name:'Earth', prog:['#9be3ff','#4aa3ff'], bg:'radial-gradient(circle at 30% 30%, #7be1c7,#2b7fb8)'},
+        {name:'Mars', prog:['#ffb487','#ff6b45'], bg:'linear-gradient(180deg,#b94a33,#ff6b45)'},
+        {name:'Jupiter', prog:['#ffd6a6','#d19b5f'], bg:'linear-gradient(180deg,#c77f3b,#8b5a2b)'},
+        {name:'Saturn', prog:['#ffe6b3','#ffc966'], bg:'linear-gradient(180deg,#e6d3a0,#c9a85a)'},
+        {name:'Uranus', prog:['#b3f0ff','#77d1ff'], bg:'linear-gradient(180deg,#9fe8ff,#6fd1ff)'},
+        {name:'Neptune', prog:['#8ccfff','#3b86d6'], bg:'linear-gradient(180deg,#2e6fb0,#1b4f8a)'}
+      ];
+
+      function formatTime(s){ if(isNaN(s)) return '0:00'; var m=Math.floor(s/60); var sec=Math.floor(s%60); return m+':'+(sec<10?'0'+sec:sec); }
+
+      frames.forEach(function(frame, i){
+        var idx = i % planets.length; var p = planets[idx];
+        var wrap = document.createElement('div'); wrap.className='player-wrap';
+        var audio = document.createElement('audio'); audio.preload='metadata'; audio.id='audio-'+i;
+        var candidate = './media/audio'+(i+1)+'.mp3';
+        // check availability
+        fetch(candidate, {method:'HEAD'}).then(function(res){ if(res.ok) audio.src=candidate; });
+
+        var btn = document.createElement('button'); btn.className='play-planet-btn'; btn.setAttribute('aria-pressed','false'); btn.title='Play';
+        var planet = document.createElement('div'); planet.className='planet'; if(p.stripes) planet.classList.add('stripes');
+        planet.style.background = p.bg;
+        var playIcon = document.createElementNS('http://www.w3.org/2000/svg','svg'); playIcon.setAttribute('viewBox','0 0 64 64'); playIcon.setAttribute('width','28'); playIcon.setAttribute('height','28');
+        var playShape = document.createElementNS('http://www.w3.org/2000/svg','polygon'); playShape.setAttribute('points','22,16 52,32 22,48'); playShape.setAttribute('fill','#06121a');
+        var pauseGroup = document.createElementNS('http://www.w3.org/2000/svg','g'); pauseGroup.setAttribute('style','display:none');
+        var r1 = document.createElementNS('http://www.w3.org/2000/svg','rect'); r1.setAttribute('x','20'); r1.setAttribute('y','16'); r1.setAttribute('width','6'); r1.setAttribute('height','32'); r1.setAttribute('fill','#06121a');
+        var r2 = document.createElementNS('http://www.w3.org/2000/svg','rect'); r2.setAttribute('x','38'); r2.setAttribute('y','16'); r2.setAttribute('width','6'); r2.setAttribute('height','32'); r2.setAttribute('fill','#06121a');
+        pauseGroup.appendChild(r1); pauseGroup.appendChild(r2);
+        playIcon.appendChild(playShape); playIcon.appendChild(pauseGroup);
+        planet.appendChild(playIcon);
+        btn.appendChild(planet);
+
+        var body = document.createElement('div'); body.className='player-body';
+        var row = document.createElement('div'); row.className='player-row';
+        var track = document.createElement('div'); track.className='track';
+        var prog = document.createElement('div'); prog.className='progress'; prog.style.setProperty('--prog-start', p.prog[0]); prog.style.setProperty('--prog-end', p.prog[1]);
+        track.appendChild(prog);
+        var time = document.createElement('div'); time.className='time'; time.textContent='0:00';
+        row.appendChild(track); row.appendChild(time);
+        body.appendChild(row);
+
+        wrap.appendChild(audio); wrap.appendChild(btn); wrap.appendChild(body);
+        // insert after frame
+        frame.parentNode.insertBefore(wrap, frame.nextSibling);
+
+        // interactions
+        btn.addEventListener('click', function(){
+          if(!audio.src){
+            // subtle tap animation to signal no file
+            btn.animate([
+              { transform: 'scale(1)' },
+              { transform: 'scale(0.96)' },
+              { transform: 'scale(1)' }
+            ], { duration: 180 });
+            return;
+          }
+          if(audio.paused) audio.play().catch(function(e){ console.error(e); }); else audio.pause();
+        });
+        audio.addEventListener('play', function(){ btn.setAttribute('aria-pressed','true'); playShape.style.display='none'; pauseGroup.style.display='inline'; btn.title='Pause'; });
+        audio.addEventListener('pause', function(){ btn.setAttribute('aria-pressed','false'); playShape.style.display='inline'; pauseGroup.style.display='none'; btn.title='Play'; });
+        audio.addEventListener('timeupdate', function(){ if(audio.duration) prog.style.width = (audio.currentTime/audio.duration*100)+'%'; time.textContent = formatTime(audio.currentTime); });
+        audio.addEventListener('ended', function(){ audio.currentTime=0; audio.pause(); });
+      });
+    })();
+  </script>
 </body>
 </html>
