@@ -158,6 +158,7 @@ git push
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        
         background-color: rgba(5, 5, 5, 0.9);
         transition: transform 120ms ease-out, box-shadow 120ms ease-out,
           border-color 120ms ease-out;
@@ -193,6 +194,136 @@ git push
         height: auto;
       }
 
+      /* Carousel styles (Netflix-like horizontal scroller) */
+      .carousel {
+        position: relative;
+        margin-top: 18px;
+        margin-bottom: 28px;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 12px 24px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+
+      .carousel-item {
+        flex: 0 0 200px;
+        background-color: rgba(5, 5, 5, 0.98);
+        border: 1px solid #000;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        color: #f5f5f5;
+        scroll-snap-align: center;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+      }
+
+      /* reserve space for ~10 lines of text above the image */
+      .canon-top {
+        min-height: 220px;
+        overflow: hidden;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        border: 1px solid #111;
+        margin-top: 12px;
+        outline: none;
+        -webkit-user-drag: none;
+      }
+
+      .carousel-caption {
+        margin-top: 8px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        text-align: center;
+        opacity: 0.9;
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #000;
+        border: none;
+        color: #f5f5f5;
+        width: 32px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 6;
+        opacity: 0.95;
+      }
+      .carousel-arrow:focus { outline: none; box-shadow: none; }
+      .carousel-arrow:active { outline: none; box-shadow: none; }
+      .carousel-arrow::-moz-focus-inner { border: 0; }
+      .carousel-arrow, .carousel-arrow * { -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none; }
+      .carousel-arrow { -webkit-tap-highlight-color: transparent; appearance: none; }
+
+      /* remove tap highlight on track */
+      .carousel-track, .carousel-item { -webkit-tap-highlight-color: transparent; }
+
+      .carousel-arrow.prev {
+        left: 8px;
+      }
+
+      .carousel-arrow.next {
+        right: 8px;
+      }
+
+      .carousel-arrow:focus {
+        outline: 2px solid #fff;
+      }
+
+      .carousel-track.dragging {
+        cursor: grabbing;
+      }
+
+      /* Hide native scrollbar but keep scrolling functionality */
+      .carousel-track {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .carousel-track::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+        height: 0;
+      }
+
+      @media (max-width: 640px) {
+        .carousel-item img {
+          height: 140px;
+        }
+        .carousel-item {
+          flex: 0 0 160px;
+        }
+        .carousel-arrow {
+          width: 32px;
+          height: 48px;
+          font-size: 20px;
+        }
+        .carousel-track {
+          padding: 12px 18px;
+        }
+      }
+
       footer {
         margin-top: 64px;
         font-size: 10px;
@@ -212,6 +343,7 @@ git push
         nav {
           letter-spacing: 0.14em;
         }
+        
       }
     </style>
   </head>
@@ -308,68 +440,70 @@ git push
 
 -->
       <section id="canon">
-        <h2>Life Canon. Time is not linear.</h2>
+        <h2>Life Canon. Time is not linear. Inflection points</h2>
         <p style="font-size: 12px; opacity: 0.8; max-width: 640px">
-          Books, images, and artifacts that feel like fixed points. Add or erase
-          as your orbit changes.
+          Man does not step into the same river twice. 
         </p>
-        <div class="canon-grid">
-          <div class="canon-item">
-            <div>
-              <div class="canon-title">Naval's Almanack</div>
-              <div class="canon-note">
-                leverage, judgment, compounding over decades
+        <!-- Carousel where the black .canon-item containers are the slides -->
+        <div class="carousel" aria-label="Life canon carousel">
+          <button class="carousel-arrow prev" aria-label="Previous">‹</button>
+          <div class="carousel-track">
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Naval's Almanack</div>
+                <div class="canon-note">
+                  leverage, judgment, compounding over decades
+                </div>
+              </div>
+              <div class="canon-img">
+                <img src="covers/naval-almanack.jpg" alt="Naval's Almanack cover" />
               </div>
             </div>
-            <div class="canon-img">
-              <img
-                src="covers/naval-almanack.jpg"
-                alt="Naval's Almanack cover"
-              />
-            </div>
-          </div>
 
-          <div class="canon-item">
-            <div>
-              <div class="canon-title">Harassment Architecture</div>
-              <div class="canon-note">
-                american decay, aggression, and refusal to be docile
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Innocence</div>
+                <div class="canon-note">You could be in paradise</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img1.jpg" alt="Innocence" />
               </div>
             </div>
-            <div class="canon-img">
-              <img
-                src="covers/harassment-architecture.jpg"
-                alt="Harassment Architecture cover"
-              />
-            </div>
-          </div>
 
-          <div class="canon-item">
-            <div>
-              <div class="canon-title">Simulacra & Simulation</div>
-              <div class="canon-note">
-                signs, copies, and living inside the image
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Simulacra &amp; Simulation</div>
+                <div class="canon-note">signs, copies, and living inside the image</div>
+              </div>
+              <div class="canon-img">
+                <img src="covers/simulacra-simulation.jpg" alt="Simulacra and Simulation cover" />
               </div>
             </div>
-            <div class="canon-img">
-              <img
-                src="covers/simulacra-simulation.jpg"
-                alt="Simulacra and Simulation cover"
-              />
-            </div>
-          </div>
 
-          <div class="canon-item">
-            <div>
-              <div class="canon-title">slot</div>
-              <div class="canon-note">
-                drop in another book / image that feels core
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">slot</div>
+                <div class="canon-note">drop in another book / image that feels core</div>
+              </div>
+              <div class="canon-img">
+                <img src="covers/book4.jpg" alt="slot" />
               </div>
             </div>
-            <div class="canon-img">
-              <img src="covers/book4.jpg" alt="" />
-            </div>
+
+            <!-- Extra empty black containers as additional slides (total slides = 18) -->
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
+            <div class="canon-item carousel-item"></div>
           </div>
+          <button class="carousel-arrow next" aria-label="Next">›</button>
         </div>
       </section>
 
@@ -407,6 +541,13 @@ git push
         </p>
       </section>
 
+      <section id="identity">
+        <h2>Identity</h2>
+        <p style="font-size:13px; line-height:1.6; max-width:640px; opacity:0.8;">
+          2007 August 15
+        </p>
+      </section>
+
       <section id="socials">
         <h2>Socials</h2>
         <ul class="list">
@@ -437,7 +578,7 @@ git push
         </ul>
       </section>
 
-      <footer>© <span id="year"></span> Connect Orbit</footer>
+      <footer>© <span id="year"></span> *</footer>
     </div>
 
     <script>
@@ -463,6 +604,147 @@ git push
             buffer = "";
           }
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        var track = document.querySelector(".carousel-track");
+        if (!track) return;
+
+        // helper to get item width + gap
+        function itemWidth() {
+          var item = track.querySelector(".carousel-item");
+          if (!item) return 220;
+          var gap = parseInt(getComputedStyle(track).gap) || 12;
+          return Math.round(item.getBoundingClientRect().width + gap);
+        }
+
+        // prevent native image drag
+        track.querySelectorAll("img").forEach(function (img) {
+          img.draggable = false;
+        });
+
+        // clone slides to allow smooth infinite looping
+        var originalSlides = Array.from(track.children);
+        var originalCount = originalSlides.length;
+
+        // append clones of originals
+        originalSlides.forEach(function (s) {
+          track.appendChild(s.cloneNode(true));
+        });
+
+        // prepend clones of originals (in reverse order)
+        for (var i = originalCount - 1; i >= 0; i--) {
+          track.insertBefore(originalSlides[i].cloneNode(true), track.firstChild);
+        }
+
+        // start positioned at the first original slide
+        function jumpToStart() {
+          track.scrollLeft = itemWidth() * originalCount;
+        }
+        // allow layout to settle
+        setTimeout(jumpToStart, 50);
+
+        var prev = document.querySelector(".carousel-arrow.prev");
+        var next = document.querySelector(".carousel-arrow.next");
+
+        var scrollCount = 1; // move one item per arrow click for flow
+
+        prev && prev.addEventListener("click", function () {
+          track.scrollBy({ left: -itemWidth() * scrollCount, behavior: "smooth" });
+        });
+
+        next && next.addEventListener("click", function () {
+          track.scrollBy({ left: itemWidth() * scrollCount, behavior: "smooth" });
+        });
+
+        // prevent mouse/touch/pointer interactions from focusing the arrow buttons
+        function preventPointerFocus(btn) {
+          if (!btn) return;
+          btn.addEventListener('pointerdown', function (e) {
+            if (e.pointerType === 'mouse' || e.pointerType === 'pen' || e.pointerType === 'touch') {
+              e.preventDefault();
+            }
+          });
+        }
+        preventPointerFocus(prev);
+        preventPointerFocus(next);
+
+        // pointer drag for mouse & touch
+        var isDown = false;
+        var startX = 0;
+        var scrollLeft = 0;
+
+        track.tabIndex = 0;
+
+        track.addEventListener("pointerdown", function (e) {
+          isDown = true;
+          track.classList.add("dragging");
+          startX = e.clientX;
+          scrollLeft = track.scrollLeft;
+          try { track.setPointerCapture(e.pointerId); } catch (err) {}
+        });
+
+        track.addEventListener("pointermove", function (e) {
+          if (!isDown) return;
+          var x = e.clientX;
+          var walk = startX - x;
+          track.scrollLeft = scrollLeft + walk;
+        });
+
+        track.addEventListener("pointerup", function (e) {
+          isDown = false;
+          track.classList.remove("dragging");
+          try { track.releasePointerCapture(e.pointerId); } catch (err) {}
+        });
+
+        track.addEventListener("pointerleave", function () {
+          isDown = false;
+          track.classList.remove("dragging");
+        });
+
+        // keyboard support
+        track.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowRight") next && next.click();
+          if (e.key === "ArrowLeft") prev && prev.click();
+        });
+
+        // when scrolling into cloned regions, jump to the corresponding original slides
+        var ticking = false;
+        track.addEventListener('scroll', function () {
+          if (ticking) return;
+          window.requestAnimationFrame(function () {
+            var iw = itemWidth();
+            var start = iw * originalCount; // first original start
+            var end = iw * (originalCount * 2); // end of originals
+
+            if (track.scrollLeft < start - iw / 2) {
+              // moved into prepended clones -> jump forward
+              track.scrollLeft += iw * originalCount;
+            } else if (track.scrollLeft > end + iw / 2) {
+              // moved into appended clones -> jump backward
+              track.scrollLeft -= iw * originalCount;
+            }
+            ticking = false;
+          });
+          ticking = true;
+        });
+
+        // hide arrows if no overflow (consider clones)
+        function updateArrows() {
+          if (!prev || !next) return;
+          // since we cloned, overflow will almost always be true; hide only if impossible
+          if (track.scrollWidth <= track.clientWidth + 1) {
+            prev.style.display = 'none';
+            next.style.display = 'none';
+          } else {
+            prev.style.display = 'flex';
+            next.style.display = 'flex';
+          }
+        }
+
+        window.addEventListener('resize', updateArrows);
+        updateArrows();
       })();
     </script>
   </body>
