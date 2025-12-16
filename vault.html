@@ -70,9 +70,91 @@ Each person has a unique code.
     <div id="vault-error" class="error"></div>
   </form>
 
+<br
+    <!-- Less Secret Vault Section -->
+    <section id="less-secret-vault" style="margin-top:50px;">
+      <h1 style="letter-spacing:0.25em; text-transform:uppercase; font-size:16px;">Less Secret Vault</h1>
+      <p style="opacity:0.7; max-width:500px; margin:0 auto 20px;">Where am i? </p>
+      <form id="less-vault-form">
+        <input type="password" id="less-vault-input" autocomplete="off" />
+        <br />
+        <button type="submit">Enter</button>
+        <div id="less-vault-error" class="error"></div>
+      </form>
+    </section>
+
   <p style="margin-top:40px;">
-    <a href="index.html">return</a>
-  </p>
+
+    <!-- Project Navigation Boxes -->
+    <h1 style="margin-top:60px; margin-bottom:18px; font-size:22px; letter-spacing:0.18em; text-transform:uppercase; color:#f5f5f5;">website design files</h1>
+    <form id="design-files-form" style="margin-bottom:24px;">
+      <input type="password" id="design-files-input" placeholder="Enter password" autocomplete="off" />
+      <button type="submit">Unlock</button>
+      <div id="design-files-error" class="error"></div>
+    </form>
+    <div id="project-boxes" style="display:none; flex-wrap:wrap; justify-content:center; gap:32px; margin:0 auto 0 auto; max-width:900px;">
+      <div class="project-rect" data-link="pronia_more.html">Pronia</div>
+      <div class="project-rect" data-link="lexiconation_more.html">Lexiconation</div>
+      <div class="project-rect" data-link="satellite_more.html">Satellite</div>
+      <div class="project-rect" data-link="speakstreak_more.html">Speakstreak</div>
+      <!-- Add more boxes below as needed -->
+    </div>
+    <style>
+      .project-rect {
+        background: #181818;
+        border: 2px solid #444;
+        border-radius: 18px;
+        color: #f5f5f5;
+        font-size: 1.25em;
+        font-family: 'Courier New', monospace;
+        width: 210px;
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+        cursor: pointer;
+        transition: background 0.18s, border 0.18s, box-shadow 0.18s;
+        box-shadow: 0 2px 12px #0006;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        user-select: none;
+      }
+      .project-rect:hover {
+        background: #232323;
+        border-color: #f5f5f5;
+        box-shadow: 0 4px 24px #000a;
+      }
+    </style>
+    <script>
+      // Project box click navigation
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.project-rect').forEach(function(box) {
+          box.addEventListener('click', function() {
+            var link = box.getAttribute('data-link');
+            if (link) window.location.href = link;
+          });
+        });
+
+        // Website design files password protection
+        var designForm = document.getElementById('design-files-form');
+        var designInput = document.getElementById('design-files-input');
+        var designError = document.getElementById('design-files-error');
+        var projectBoxes = document.getElementById('project-boxes');
+        designForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var v = (designInput.value || '').trim().toLowerCase();
+          if (v === 'love') {
+            projectBoxes.style.display = 'flex';
+            designForm.style.display = 'none';
+          } else {
+            designError.textContent = 'access denied.';
+            designInput.value = '';
+          }
+        });
+      });
+    </script>
+
 
   <script>
     (function(){
@@ -100,6 +182,32 @@ Each person has a unique code.
         } else {
           error.textContent = "access denied.";
           input.value = "";
+        }
+      });
+
+      // Less Secret Vault logic
+      // dogpatch:dogpatch.html, timebook123!:timebook_diary.html
+      // Add more passwords as needed, format: password:page.html
+      var lessEncoded = "ZG9ncGF0Y2g6ZG9ncGF0Y2guaHRtbCx0aW1lYm9vazEyMyE6dGltZWJvb2tfZGlhcnkuaHRtbA=="; // btoa("dogpatch:dogpatch.html,timebook123!:timebook_diary.html")
+      var lessDecoded = atob(lessEncoded);
+      var lessRoutes = {};
+      lessDecoded.split(',').forEach(function(p){
+        var s = p.split(':');
+        lessRoutes[s[0]] = s[1];
+      });
+
+      var lessForm = document.getElementById('less-vault-form');
+      var lessInput = document.getElementById('less-vault-input');
+      var lessError = document.getElementById('less-vault-error');
+
+      lessForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        var v = (lessInput.value || "").trim().toLowerCase();
+        if (lessRoutes[v]) {
+          window.location.href = lessRoutes[v];
+        } else {
+          lessError.textContent = "access denied.";
+          lessInput.value = "";
         }
       });
     })();
