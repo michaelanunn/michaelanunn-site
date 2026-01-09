@@ -3,6 +3,8 @@
     <img src="media/face2.jpg" alt="Michaela's face" style="width:172px;height:172px;border-radius:50%;object-fit:cover;display:block;border:3px solid #fff;box-shadow:0 0 32px 8px #ff00b4,0 2px 12px #fff4;transition:box-shadow 0.3s;">
   </div>
 </div>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -134,122 +136,173 @@
             margin-bottom: 70px;
         }
 
-        /* Library bookshelf */
+        /* 3D Floating Shelves Library */
         .library-section {
             margin-bottom: 120px;
-            max-width: 900px;
+            max-width: 2000px;
             margin-left: auto;
             margin-right: auto;
+            width: 92%;
         }
 
         .library-title {
             font-family: 'Mrs Saint Delafield', cursive;
             font-size: 48px;
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 120px;
             color: var(--text);
         }
 
-        .bookshelf {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-            gap: 15px;
-            padding: 40px 30px;
-            background: linear-gradient(135deg, 
-                rgba(255, 241, 200, 0.15) 0%, 
-                rgba(254, 190, 199, 0.15) 100%);
-            border: 2px solid var(--pink);
-            border-radius: 4px;
+        .shelves-container {
             position: relative;
+            min-height: 800px;
         }
 
-        .bookshelf::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, 
-                var(--cream) 0%, 
-                var(--pink) 50%, 
-                var(--cream) 100%);
-        }
-
-        .book {
-            height: 180px;
-            background: linear-gradient(135deg, 
-                var(--cream) 0%, 
-                var(--pink) 100%);
-            border: 2px solid var(--text);
-            border-radius: 2px 8px 8px 2px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        /* Individual shelf styling - 3D floating effect */
+        .shelf {
             position: relative;
-            overflow: hidden;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 100%;
+            height: 40px;
+            background: linear-gradient(180deg, 
+                #f8f8f8 0%,
+                #ffffff 20%,
+                #f5f5f5 80%,
+                #e8e8e8 100%);
+            margin-bottom: 200px;
             box-shadow: 
-                -3px 0 8px rgba(0, 0, 0, 0.1),
-                inset -2px 0 4px rgba(255, 255, 255, 0.5);
+                0 18px 35px rgba(0, 0, 0, 0.18),
+                0 10px 20px rgba(0, 0, 0, 0.12),
+                inset 0 2px 4px rgba(255, 255, 255, 0.8),
+                inset 0 -2px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 2px;
         }
 
-        .book::before {
+        .shelf::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 8px;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(180deg, 
+                rgba(255, 255, 255, 0.95) 0%,
+                transparent 100%);
+            border-radius: 2px 2px 0 0;
+        }
+
+        .shelf::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 15px;
+            right: 15px;
+            height: 10px;
+            background: radial-gradient(ellipse at center, 
+                rgba(0, 0, 0, 0.25) 0%,
+                rgba(0, 0, 0, 0.08) 50%,
+                transparent 100%);
+            filter: blur(8px);
+        }
+
+        /* Books on shelf */
+        .books-row {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+            padding: 0 60px;
+        }
+
+        /* 3D Book styling */
+        .book-3d {
+            width: 120px;
+            height: 160px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-decoration: none;
+            transform-style: preserve-3d;
+        }
+
+        .book-3d:hover {
+            transform: translateY(-15px) rotateY(5deg);
+        }
+
+        /* Book front face */
+        .book-front {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                var(--cream) 0%, 
+                var(--pink) 100%);
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-shadow: 
+                -8px 0 15px rgba(0, 0, 0, 0.15),
+                inset 2px 0 4px rgba(255, 255, 255, 0.5);
+        }
+
+        .book-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
             height: 100%;
             background: linear-gradient(90deg, 
-                rgba(0, 0, 0, 0.2) 0%, 
+                transparent 0%,
+                transparent 40%,
+                rgba(255, 255, 255, 0.2) 50%,
+                transparent 60%,
                 transparent 100%);
         }
 
-        .book::after {
-            content: '';
+        /* Book spine (left edge) */
+        .book-spine-3d {
             position: absolute;
-            top: 50%;
-            left: 4px;
-            width: 2px;
-            height: 60%;
-            background: rgba(0, 0, 0, 0.1);
-            transform: translateY(-50%);
+            left: -12px;
+            top: 0;
+            width: 12px;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                rgba(0, 0, 0, 0.3) 0%,
+                rgba(0, 0, 0, 0.15) 50%,
+                rgba(0, 0, 0, 0.05) 100%);
+            transform: skewY(0deg);
+            border-radius: 2px 0 0 2px;
         }
 
-        .book:hover {
-            transform: translateY(-12px) scale(1.05);
-            box-shadow: 
-                -3px 5px 20px rgba(254, 190, 199, 0.4),
-                inset -2px 0 6px rgba(255, 255, 255, 0.7);
-        }
-
-        .book-spine {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
+        /* Book text */
+        .book-title {
             font-size: 13px;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
             color: var(--text);
             font-weight: 400;
             text-transform: uppercase;
-            padding: 20px 0;
-            transform: rotate(180deg);
+            text-align: center;
+            z-index: 1;
+            position: relative;
         }
 
         /* Different book colors */
-        .book:nth-child(1) { background: linear-gradient(135deg, #ffd4e0 0%, #febec7 100%); }
-        .book:nth-child(2) { background: linear-gradient(135deg, #fff1c8 0%, #ffe4a3 100%); }
-        .book:nth-child(3) { background: linear-gradient(135deg, #e8d5f2 0%, #d4a5e8 100%); }
-        .book:nth-child(4) { background: linear-gradient(135deg, #ffd4e0 0%, #ffb3c6 100%); }
-        .book:nth-child(5) { background: linear-gradient(135deg, #fff1c8 0%, #ffeab3 100%); }
-        .book:nth-child(6) { background: linear-gradient(135deg, #d4e8f2 0%, #b3d9f2 100%); }
-        .book:nth-child(7) { background: linear-gradient(135deg, #ffd4e0 0%, #febec7 100%); }
-        .book:nth-child(8) { background: linear-gradient(135deg, #e8f2d4 0%, #d9f2b3 100%); }
-        .book:nth-child(9) { background: linear-gradient(135deg, #fff1c8 0%, #ffe4a3 100%); }
-        .book:nth-child(10) { background: linear-gradient(135deg, #ffd4e0 0%, #ffb3c6 100%); }
-        .book:nth-child(11) { background: linear-gradient(135deg, #e8d5f2 0%, #d4a5e8 100%); }
+        .book-3d:nth-child(1) .book-front { background: linear-gradient(135deg, #ffd4e0 0%, #febec7 100%); }
+        .book-3d:nth-child(2) .book-front { background: linear-gradient(135deg, #fff1c8 0%, #ffe4a3 100%); }
+        .book-3d:nth-child(3) .book-front { background: linear-gradient(135deg, #e8d5f2 0%, #d4a5e8 100%); }
+        .book-3d:nth-child(4) .book-front { background: linear-gradient(135deg, #ffd4e0 0%, #ffb3c6 100%); }
+        .book-3d:nth-child(5) .book-front { background: linear-gradient(135deg, #fff1c8 0%, #ffeab3 100%); }
+        .book-3d:nth-child(6) .book-front { background: linear-gradient(135deg, #d4e8f2 0%, #b3d9f2 100%); }
+        .book-3d:nth-child(7) .book-front { background: linear-gradient(135deg, #ffd4e0 0%, #febec7 100%); }
+        .book-3d:nth-child(8) .book-front { background: linear-gradient(135deg, #e8f2d4 0%, #d9f2b3 100%); }
+        .book-3d:nth-child(9) .book-front { background: linear-gradient(135deg, #fff1c8 0%, #ffe4a3 100%); }
+        .book-3d:nth-child(10) .book-front { background: linear-gradient(135deg, #ffd4e0 0%, #ffb3c6 100%); }
 
         .workspace {
             position: relative;
@@ -558,18 +611,26 @@
                 gap: 15px;
             }
 
-            .bookshelf {
-                grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            .library-section {
+                max-width: 100%;
+            }
+
+            .book-3d {
+                width: 80px;
+                height: 120px;
+            }
+
+            .books-row {
                 gap: 10px;
-                padding: 30px 20px;
+                padding: 0 10px;
             }
 
-            .book {
-                height: 140px;
+            .book-title {
+                font-size: 10px;
             }
 
-            .book-spine {
-                font-size: 11px;
+            .shelf {
+                margin-bottom: 100px;
             }
 
             .workspace {
@@ -636,43 +697,89 @@
 
             <p class="subtitle">builder, researcher, dreamer</p>
 
-            <!-- Library bookshelf -->
+            <!-- 3D Library with floating shelves -->
             <div class="library-section">
                 <h2 class="library-title">Library</h2>
-                <div class="bookshelf">
-                    <a href="books.html" class="book">
-                        <span class="book-spine">Books</span>
-                    </a>
-                    <a href="media.html" class="book">
-                        <span class="book-spine">Media</span>
-                    </a>
-                    <a href="quotes.html" class="book">
-                        <span class="book-spine">Quotes</span>
-                    </a>
-                    <a href="concepts.html" class="book">
-                        <span class="book-spine">Concepts</span>
-                    </a>
-                    <a href="interior_design.html" class="book">
-                        <span class="book-spine">Interior Design</span>
-                    </a>
-                    <a href="articles/index.html" class="book">
-                        <span class="book-spine">Newsletter</span>
-                    </a>
-                    <a href="conversation.html" class="book">
-                        <span class="book-spine">Conversation</span>
-                    </a>
-                    <a href="https://getsatellite.lol" target="_blank" class="book">
-                        <span class="book-spine">Satellite</span>
-                    </a>
-                    <a href="https://pronia.app" target="_blank" class="book">
-                        <span class="book-spine">Pronia</span>
-                    </a>
-                    <a href="https://speakstreak.app" target="_blank" class="book">
-                        <span class="book-spine">SpeakStreak</span>
-                    </a>
-                    <a href="https://lexiconation.app" target="_blank" class="book">
-                        <span class="book-spine">Lexiconation</span>
-                    </a>
+                <div class="shelves-container">
+                    
+                    <!-- Top shelf - 3 books -->
+                    <div class="shelf">
+                        <div class="books-row">
+                            <a href="books.html" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Books</span>
+                                </div>
+                            </a>
+                            <a href="media.html" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Media</span>
+                                </div>
+                            </a>
+                            <a href="quotes.html" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Quotes</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Middle shelf - 4 books -->
+                    <div class="shelf">
+                        <div class="books-row">
+                            <a href="concepts.html" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Concepts</span>
+                                </div>
+                            </a>
+                            <a href="interior_design.html" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Interior Design</span>
+                                </div>
+                            </a>
+                            <a href="articles/index.html" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Newsletter</span>
+                                </div>
+                            </a>
+                            <a href="conversation.html" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Conversation</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Bottom shelf - 3 books -->
+                    <div class="shelf">
+                        <div class="books-row">
+                            <a href="https://getsatellite.lol" target="_blank" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Satellite</span>
+                                </div>
+                            </a>
+                            <a href="https://pronia.app" target="_blank" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">Pronia</span>
+                                </div>
+                            </a>
+                            <a href="https://speakstreak.app" target="_blank" class="book-3d">
+                                <div class="book-spine-3d"></div>
+                                <div class="book-front">
+                                    <span class="book-title">SpeakStreak</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </section>
