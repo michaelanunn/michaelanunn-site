@@ -1,3 +1,9 @@
+<div style="display:flex;justify-content:center;margin-top:32px;margin-bottom:18px;">
+  <div style="background:linear-gradient(135deg,#ff00b4,#ff6ec7,#00eaff,#fff700);padding:5px;border-radius:50%;box-shadow:0 0 32px 8px #ff00b488,0 2px 16px #0008;transition:box-shadow 0.3s;">
+    <img src="media/face2.jpg" alt="Michaela's face" style="width:172px;height:172px;border-radius:50%;object-fit:cover;display:block;border:3px solid #fff;box-shadow:0 0 32px 8px #ff00b4,0 2px 12px #fff4;transition:box-shadow 0.3s;">
+  </div>
+</div>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +37,6 @@
             line-height: 1.7;
         }
 
-        /* Floating flowers */
         .flower {
             position: fixed;
             font-size: 20px;
@@ -67,7 +72,6 @@
             z-index: 10;
         }
 
-        /* Hero */
         .hero {
             min-height: 100vh;
             display: flex;
@@ -89,7 +93,6 @@
             display: inline-block;
         }
 
-        /* Social links */
         .social-links {
             display: flex;
             gap: 30px;
@@ -132,7 +135,6 @@
             margin-bottom: 70px;
         }
 
-        /* Project cards - single column layout */
         .projects-container {
             display: flex;
             flex-direction: column;
@@ -213,7 +215,6 @@
             letter-spacing: 0.05em;
         }
 
-        /* Draggable polaroids */
         .workspace {
             position: relative;
             min-height: 700px;
@@ -294,7 +295,6 @@
             font-style: italic;
         }
 
-        /* Manifesto section */
         .manifesto {
             background: var(--cream);
             padding: 90px 70px;
@@ -346,7 +346,6 @@
             margin-bottom: 0;
         }
 
-        /* Stats - horizontal 4x1 */
         .stats {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -382,7 +381,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* Pull quote */
         .pull-quote {
             text-align: center;
             padding: 100px 0;
@@ -410,7 +408,6 @@
             font-family: 'Mrs Saint Delafield', cursive;
         }
 
-        /* Contact section */
         .contact {
             text-align: center;
             padding: 80px 0;
@@ -435,7 +432,6 @@
             color: var(--text);
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 90px 0 60px;
@@ -457,7 +453,6 @@
             margin: 8px 0;
         }
 
-        /* Explosion overlay */
         .explosion-overlay {
             position: fixed;
             top: 0;
@@ -497,7 +492,6 @@
             }
         }
 
-        /* Instructions */
         .instructions {
             position: fixed;
             bottom: 35px;
@@ -518,7 +512,6 @@
             color: var(--text);
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .container {
                 padding: 0 25px;
@@ -527,14 +520,6 @@
             .social-links {
                 flex-direction: column;
                 gap: 15px;
-            }
-
-            .projects-container {
-                gap: 20px;
-            }
-
-            .project-card {
-                height: 180px;
             }
 
             .workspace {
@@ -579,29 +564,20 @@
     </style>
 </head>
 <body>
-    <!-- Explosion overlay -->
     <div class="explosion-overlay" id="explosionOverlay"></div>
 
-    <!-- Floating flowers -->
     <div class="flower" style="left: 10%; animation-delay: 0s;">✿</div>
     <div class="flower" style="left: 30%; animation-delay: 3s;">✿</div>
     <div class="flower" style="left: 50%; animation-delay: 6s;">✿</div>
     <div class="flower" style="left: 70%; animation-delay: 9s;">✿</div>
     <div class="flower" style="left: 90%; animation-delay: 12s;">✿</div>
 
-    <!-- Instructions -->
-    <div class="instructions" onclick="triggerChaosMode()">
-        chaos mode
-    </div>
+    <div class="instructions" onclick="triggerChaosMode()">chaos mode</div>
 
     <div class="container">
-        <!-- Hero -->
         <section class="hero">
-            <h1 class="name-script">
-                Michaela Nunn
-            </h1>
+            <h1 class="name-script">Michaela Nunn</h1>
 
-            <!-- Social links -->
             <div class="social-links">
                 <a href="https://github.com/michaelanunn" target="_blank">github</a>
                 <a href="https://www.linkedin.com/in/michaelanunn" target="_blank">linkedin</a>
@@ -610,7 +586,6 @@
 
             <p class="subtitle">builder, researcher, dreamer</p>
 
-            <!-- Project cards -->
             <div class="projects-container">
                 <div class="project-card" onclick="this.classList.toggle('flipped')">
                     <div class="card-side card-front">
@@ -674,14 +649,12 @@
             </div>
         </section>
 
-        <!-- Pull quote -->
         <div class="pull-quote">
             <p class="quote-text">
                 The future belongs to those who connect first
             </p>
         </div>
 
-        <!-- Stats -->
         <div class="stats">
             <div class="stat-box" onclick="this.style.background = this.style.background ? '' : 'var(--pink)'">
                 <div class="stat-value">2+</div>
@@ -701,7 +674,6 @@
             </div>
         </div>
 
-        <!-- Draggable workspace -->
         <div class="workspace">
             <div class="polaroid polaroid-1">
                 <div class="polaroid-photo"></div>
@@ -717,7 +689,6 @@
             </div>
         </div>
 
-        <!-- Manifesto -->
         <section class="manifesto">
             <h2 class="manifesto-title">Manifesto</h2>
             <p class="manifesto-text">
@@ -736,13 +707,11 @@
             </p>
         </section>
 
-        <!-- Contact -->
         <section class="contact">
             <a href="mailto:michaelalouisenunn@gmail.com" class="contact-button">GET IN TOUCH</a>
         </section>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-script">Michaela Nunn</div>
         <p>San Francisco, California</p>
@@ -750,50 +719,37 @@
     </footer>
 
     <script>
-        // Chaos mode - neon pink explosion
         function triggerChaosMode() {
             const overlay = document.getElementById('explosionOverlay');
             overlay.style.background = 'radial-gradient(circle, rgba(255, 20, 147, 0.9) 0%, rgba(255, 105, 180, 0.7) 50%, rgba(255, 20, 147, 0.5) 100%)';
             overlay.classList.add('active');
             
-            // Create 80 exploding elements
             for (let i = 0; i < 80; i++) {
                 setTimeout(() => {
                     const chaos = document.createElement('div');
                     chaos.className = 'explosion-flower';
-                    
-                    // Mix of flowers and stars
                     const symbols = ['🌷', '🌸', '🌺', '✨', '⭐', '💕', '💖', '✿'];
                     chaos.textContent = symbols[Math.floor(Math.random() * symbols.length)];
                     chaos.style.color = ['#ff1493', '#ff69b4', '#ff85c1', '#ffc0cb'][Math.floor(Math.random() * 4)];
-                    
-                    // Random starting position
                     chaos.style.left = (50 + (Math.random() - 0.5) * 30) + '%';
                     chaos.style.top = (50 + (Math.random() - 0.5) * 30) + '%';
-                    
-                    // Random trajectory
                     const angle = Math.random() * Math.PI * 2;
                     const distance = 400 + Math.random() * 500;
                     const tx = Math.cos(angle) * distance;
                     const ty = Math.sin(angle) * distance;
-                    
                     chaos.style.setProperty('--tx', tx + 'px');
                     chaos.style.setProperty('--ty', ty + 'px');
-                    
                     document.body.appendChild(chaos);
-                    
                     setTimeout(() => chaos.remove(), 2500);
                 }, i * 20);
             }
             
-            // Reset after 3 seconds
             setTimeout(() => {
                 overlay.classList.remove('active');
                 overlay.style.background = '';
             }, 3000);
         }
 
-        // Draggable polaroids - touch means hold, mouse stop = drop
         let activeElement = null;
         let offsetX = 0;
         let offsetY = 0;
@@ -811,18 +767,6 @@
                 this.style.cursor = 'grabbing';
                 lastMoveTime = Date.now();
             });
-
-            el.addEventListener('touchstart', function(e) {
-                activeElement = this;
-                const rect = this.getBoundingClientRect();
-                const touch = e.touches[0];
-                offsetX = touch.clientX - rect.left;
-                offsetY = touch.clientY - rect.top;
-                this.style.zIndex = 1000;
-                this.style.transition = 'none';
-                this.style.cursor = 'grabbing';
-                lastMoveTime = Date.now();
-            });
         });
 
         document.addEventListener('mousemove', function(e) {
@@ -831,11 +775,8 @@
                 const rect = container.getBoundingClientRect();
                 activeElement.style.left = (e.clientX - rect.left - offsetX) + 'px';
                 activeElement.style.top = (e.clientY - rect.top - offsetY) + 'px';
-                
                 lastMoveTime = Date.now();
-                
                 clearTimeout(dropTimeout);
-                
                 dropTimeout = setTimeout(() => {
                     if (activeElement && Date.now() - lastMoveTime >= 250) {
                         activeElement.style.zIndex = '';
@@ -847,30 +788,6 @@
             }
         });
 
-        document.addEventListener('touchmove', function(e) {
-            if (activeElement) {
-                const container = document.querySelector('.workspace');
-                const rect = container.getBoundingClientRect();
-                const touch = e.touches[0];
-                activeElement.style.left = (touch.clientX - rect.left - offsetX) + 'px';
-                activeElement.style.top = (touch.clientY - rect.top - offsetY) + 'px';
-                
-                lastMoveTime = Date.now();
-                
-                clearTimeout(dropTimeout);
-                
-                dropTimeout = setTimeout(() => {
-                    if (activeElement && Date.now() - lastMoveTime >= 250) {
-                        activeElement.style.zIndex = '';
-                        activeElement.style.transition = '';
-                        activeElement.style.cursor = 'move';
-                        activeElement = null;
-                    }
-                }, 250);
-            }
-        });
-
-        // Generate more floating flowers
         setInterval(() => {
             const flower = document.createElement('div');
             flower.className = 'flower';
@@ -882,7 +799,6 @@
             setTimeout(() => flower.remove(), 18000);
         }, 4000);
 
-        // Mouse cursor trail effect
         document.addEventListener('mousemove', function(e) {
             if (Math.random() > 0.85) {
                 const trail = document.createElement('div');
@@ -897,12 +813,10 @@
                 trail.style.transition = 'all 1.2s ease-out';
                 trail.style.zIndex = '9999';
                 document.body.appendChild(trail);
-                
                 setTimeout(() => {
                     trail.style.opacity = '0';
                     trail.style.transform = 'translateY(-30px) scale(0.5)';
                 }, 100);
-                
                 setTimeout(() => trail.remove(), 1300);
             }
         });
