@@ -1,954 +1,1055 @@
-<div style="display:flex;justify-content:center;margin-top:16px;margin-bottom:0;">
-  <div style="background:linear-gradient(135deg,#ff00b4,#ff6ec7,#00eaff,#fff700);padding:5px;border-radius:50%;box-shadow:0 0 32px 8px #ff00b488,0 2px 16px #0008;transition:box-shadow 0.3s;">
-    <img src="media/face2.jpg" alt="Michaela's face" style="width:172px;height:172px;border-radius:50%;object-fit:cover;display:block;border:3px solid #fff;box-shadow:0 0 32px 8px #ff00b4,0 2px 12px #fff4;transition:box-shadow 0.3s;">
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+    margin-bottom: 0;
+  "
+>
+  <div
+    style="
+      background: linear-gradient(135deg, #ff00b4, #ff6ec7, #00eaff, #fff700);
+      padding: 5px;
+      border-radius: 50%;
+      box-shadow: 0 0 32px 8px #ff00b488, 0 2px 16px #0008;
+      transition: box-shadow 0.3s;
+    "
+  >
+    <img
+      src="media/face2.jpg"
+      alt="Michaela's face"
+      style="
+        width: 172px;
+        height: 172px;
+        border-radius: 50%;
+        object-fit: cover;
+        display: block;
+        border: 3px solid #fff;
+        box-shadow: 0 0 32px 8px #ff00b4, 0 2px 12px #fff4;
+        transition: box-shadow 0.3s;
+      "
+    />
   </div>
 </div>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Michaela Nunn</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Mrs+Saint+Delafield&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        :root {
-            --cream: #fff1c8;
-            --pink: #febec7;
-            --white: #fdfbf9;
-            --text: #4a3f3a;
-            --text-light: #9a8f8a;
-        }
+      :root {
+        --cream: #fff1c8;
+        --pink: #febec7;
+        --white: #fdfbf9;
+        --text: #4a3f3a;
+        --text-light: #9a8f8a;
+      }
 
-        body {
-            background: var(--white);
-            color: var(--text);
-            font-family: 'Crimson Pro', serif;
-            font-weight: 300;
-            overflow-x: hidden;
-            line-height: 1.7;
-        }
+      body {
+        background: var(--white);
+        color: var(--text);
+        font-family: "Crimson Pro", serif;
+        font-weight: 300;
+        overflow-x: hidden;
+        line-height: 1.7;
+      }
 
-        .flower {
-            position: fixed;
-            font-size: 20px;
-            color: var(--pink);
-            opacity: 0;
-            pointer-events: none;
-            animation: float-flower 15s ease-in-out infinite;
-            z-index: 1;
-        }
+      .flower {
+        position: fixed;
+        font-size: 20px;
+        color: var(--pink);
+        opacity: 0;
+        pointer-events: none;
+        animation: float-flower 15s ease-in-out infinite;
+        z-index: 1;
+      }
 
-        @keyframes float-flower {
-            0% {
-                opacity: 0;
-                transform: translateY(100vh) rotate(0deg);
-            }
-            10% {
-                opacity: 0.4;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-100px) rotate(360deg);
-            }
+      @keyframes float-flower {
+        0% {
+          opacity: 0;
+          transform: translateY(100vh) rotate(0deg);
         }
+        10% {
+          opacity: 0.4;
+        }
+        90% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-100px) rotate(360deg);
+        }
+      }
 
+      .container {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 50px;
+        position: relative;
+        z-index: 10;
+      }
+
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 100px 0 80px;
+        position: relative;
+      }
+
+      .name-script {
+        font-family: "Mrs Saint Delafield", cursive;
+        font-size: clamp(64px, 12vw, 110px);
+        color: var(--text);
+        margin-bottom: 2px;
+        letter-spacing: 0.03em;
+        position: relative;
+        display: inline-block;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 30px;
+        margin-bottom: 50px;
+        justify-content: center;
+      }
+
+      .social-links a {
+        font-size: 14px;
+        color: var(--text-light);
+        text-decoration: none;
+        letter-spacing: 0.08em;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .social-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: var(--pink);
+        transition: width 0.3s ease;
+      }
+
+      .social-links a:hover {
+        color: var(--text);
+      }
+
+      .social-links a:hover::after {
+        width: 100%;
+      }
+
+      .subtitle {
+        font-size: 17px;
+        color: var(--text-light);
+        letter-spacing: 0.08em;
+        margin-bottom: 70px;
+      }
+
+      /* 3D Floating Shelves Library */
+      .library-section {
+        margin-bottom: 48px;
+        margin-top: 120px;
+        max-width: 2000px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 92%;
+      }
+
+      .library-title {
+        font-family: "Mrs Saint Delafield", cursive;
+        font-size: 48px;
+        text-align: center;
+        margin-bottom: 24px;
+        color: var(--text);
+      }
+
+      .shelves-container {
+        position: relative;
+        min-height: 400px;
+      }
+
+      /* Individual shelf styling - 3D floating effect */
+      .shelf {
+        position: relative;
+        width: 100%;
+        height: 40px;
+        background: linear-gradient(
+          180deg,
+          #f8f8f8 0%,
+          #ffffff 20%,
+          #f5f5f5 80%,
+          #e8e8e8 100%
+        );
+        margin-bottom: 200px;
+        box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18),
+          0 10px 20px rgba(0, 0, 0, 0.12),
+          inset 0 2px 4px rgba(255, 255, 255, 0.8),
+          inset 0 -2px 5px rgba(0, 0, 0, 0.05);
+        border-radius: 2px;
+      }
+
+      .shelf::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.95) 0%,
+          transparent 100%
+        );
+        border-radius: 2px 2px 0 0;
+      }
+
+      .shelf::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 15px;
+        right: 15px;
+        height: 10px;
+        background: radial-gradient(
+          ellipse at center,
+          rgba(0, 0, 0, 0.25) 0%,
+          rgba(0, 0, 0, 0.08) 50%,
+          transparent 100%
+        );
+        filter: blur(8px);
+      }
+
+      /* Books on shelf */
+      .books-row {
+        position: absolute;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 80px;
+        padding: 0 60px;
+      }
+
+      /* 3D Book styling */
+      .book-3d {
+        width: 120px;
+        height: 160px;
+        position: relative;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        text-decoration: none;
+        transform-style: preserve-3d;
+      }
+
+      .book-3d:hover {
+        transform: translateY(-15px) rotateY(5deg);
+      }
+
+      /* Book front face */
+      .book-front {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, var(--cream) 0%, var(--pink) 100%);
+        border: 2px solid rgba(0, 0, 0, 0.1);
+        border-radius: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 15px;
+        box-shadow: -8px 0 15px rgba(0, 0, 0, 0.15),
+          inset 2px 0 4px rgba(255, 255, 255, 0.5);
+      }
+
+      .book-front::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent 0%,
+          transparent 40%,
+          rgba(255, 255, 255, 0.2) 50%,
+          transparent 60%,
+          transparent 100%
+        );
+      }
+
+      /* Book spine (left edge) */
+      .book-spine-3d {
+        position: absolute;
+        left: -12px;
+        top: 0;
+        width: 12px;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          rgba(0, 0, 0, 0.3) 0%,
+          rgba(0, 0, 0, 0.15) 50%,
+          rgba(0, 0, 0, 0.05) 100%
+        );
+        transform: skewY(0deg);
+        border-radius: 2px 0 0 2px;
+      }
+
+      /* Book text */
+      .book-title {
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        color: var(--text);
+        font-weight: 400;
+        text-transform: uppercase;
+        text-align: center;
+        z-index: 1;
+        position: relative;
+      }
+
+      /* Different book colors - NEW PINK PALETTE */
+      .book-3d:nth-child(1) .book-front {
+        background: linear-gradient(135deg, #ffe2f1 0%, #ffd3ea 100%);
+      }
+      .book-3d:nth-child(2) .book-front {
+        background: linear-gradient(135deg, #ffffd8 0%, #ffe2f1 100%);
+      }
+      .book-3d:nth-child(3) .book-front {
+        background: linear-gradient(135deg, #ffd3ea 0%, #ffb9de 100%);
+      }
+      .book-3d:nth-child(4) .book-front {
+        background: linear-gradient(135deg, #ffb9de 0%, #ffaad7 100%);
+      }
+      .book-3d:nth-child(5) .book-front {
+        background: linear-gradient(135deg, #ffffd8 0%, #ffd3ea 100%);
+      }
+      .book-3d:nth-child(6) .book-front {
+        background: linear-gradient(135deg, #ffe2f1 0%, #ffb9de 100%);
+      }
+      .book-3d:nth-child(7) .book-front {
+        background: linear-gradient(135deg, #ffd3ea 0%, #ffaad7 100%);
+      }
+      .book-3d:nth-child(8) .book-front {
+        background: linear-gradient(135deg, #ffffd8 0%, #ffe2f1 100%);
+      }
+      .book-3d:nth-child(9) .book-front {
+        background: linear-gradient(135deg, #ffb9de 0%, #ffd3ea 100%);
+      }
+      .book-3d:nth-child(10) .book-front {
+        background: linear-gradient(135deg, #ffaad7 0%, #ffb9de 100%);
+      }
+
+      .workspace {
+        position: relative;
+        min-height: 700px;
+        margin: 120px 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 39px,
+          rgba(74, 63, 58, 0.02) 39px,
+          rgba(74, 63, 58, 0.02) 40px
+        );
+      }
+
+      .polaroid {
+        position: absolute;
+        width: 260px;
+        background: var(--white);
+        padding: 18px 18px 55px 18px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08),
+          0 12px 30px rgba(0, 0, 0, 0.12);
+        cursor: move;
+        user-select: none;
+        transition: box-shadow 0.3s ease;
+      }
+
+      .polaroid:hover {
+        box-shadow: 0 8px 16px rgba(254, 190, 199, 0.15),
+          0 20px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .polaroid-1 {
+        top: 60px;
+        left: 8%;
+        transform: rotate(-4deg);
+        z-index: 3;
+      }
+
+      .polaroid-2 {
+        top: 140px;
+        left: 38%;
+        transform: rotate(2deg);
+        z-index: 2;
+      }
+
+      .polaroid-3 {
+        top: 220px;
+        right: 8%;
+        transform: rotate(-2deg);
+        z-index: 1;
+      }
+
+      .polaroid-photo {
+        width: 100%;
+        aspect-ratio: 1;
+        background: linear-gradient(
+            135deg,
+            rgba(255, 241, 200, 0.3) 0%,
+            rgba(254, 190, 199, 0.5) 100%
+          ),
+          repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 2px,
+            rgba(254, 190, 199, 0.03) 2px,
+            rgba(254, 190, 199, 0.03) 4px
+          );
+        margin-bottom: 18px;
+        border: 1px solid rgba(74, 63, 58, 0.08);
+      }
+
+      .polaroid-label {
+        text-align: center;
+        font-size: 15px;
+        letter-spacing: 0.02em;
+        color: var(--text);
+        font-style: italic;
+      }
+
+      .manifesto {
+        background: var(--cream);
+        padding: 90px 70px;
+        margin: 150px 0;
+        border: 1px solid rgba(254, 190, 199, 0.3);
+        position: relative;
+      }
+
+      .manifesto::before,
+      .manifesto::after {
+        content: "";
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        border: 1px solid var(--pink);
+      }
+
+      .manifesto::before {
+        top: -1px;
+        left: -1px;
+        border-right: none;
+        border-bottom: none;
+      }
+
+      .manifesto::after {
+        bottom: -1px;
+        right: -1px;
+        border-left: none;
+        border-top: none;
+      }
+
+      .manifesto-title {
+        font-family: "Mrs Saint Delafield", cursive;
+        font-size: 52px;
+        text-align: center;
+        margin-bottom: 45px;
+        color: var(--text);
+      }
+
+      .manifesto-text {
+        font-size: 17px;
+        line-height: 2;
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 28px;
+      }
+
+      .manifesto-text:last-of-type {
+        margin-bottom: 0;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+        margin: 100px 0;
+      }
+
+      .stat-box {
+        background: var(--white);
+        border: 2px solid var(--pink);
+        padding: 45px 30px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+      }
+
+      .stat-box:hover {
+        transform: translateY(-12px) rotate(1deg);
+        background: rgba(254, 190, 199, 0.15);
+        box-shadow: 0 15px 35px rgba(254, 190, 199, 0.25);
+      }
+
+      .stat-value {
+        font-size: 42px;
+        margin-bottom: 12px;
+        letter-spacing: 0.02em;
+      }
+
+      .stat-label {
+        font-size: 13px;
+        color: var(--text-light);
+        letter-spacing: 0.1em;
+      }
+
+      .pull-quote {
+        text-align: center;
+        padding: 24px 0 0 0;
+        margin: 4px 0 16px 0;
+      }
+
+      .quote-text {
+        font-size: clamp(28px, 5vw, 44px);
+        line-height: 1.6;
+        font-style: italic;
+        color: var(--text);
+        max-width: 750px;
+        margin: 0 auto;
+        position: relative;
+      }
+
+      .quote-text::before {
+        content: '"';
+        position: absolute;
+        left: -40px;
+        top: -10px;
+        font-size: 90px;
+        color: var(--pink);
+        opacity: 0.4;
+        font-family: "Mrs Saint Delafield", cursive;
+      }
+
+      .contact {
+        text-align: center;
+        padding: 24px 0;
+      }
+
+      .contact-button {
+        display: inline-block;
+        padding: 18px 55px;
+        background: var(--pink);
+        color: var(--white);
+        text-decoration: none;
+        font-size: 15px;
+        letter-spacing: 0.15em;
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        border: 1px solid var(--pink);
+      }
+
+      .contact-button:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 15px 35px rgba(254, 190, 199, 0.4);
+        background: var(--cream);
+        color: var(--text);
+      }
+
+      footer {
+        text-align: center;
+        padding: 90px 0 60px;
+        border-top: 1px solid rgba(254, 190, 199, 0.3);
+        margin-top: 120px;
+      }
+
+      .footer-script {
+        font-family: "Mrs Saint Delafield", cursive;
+        font-size: 32px;
+        margin-bottom: 15px;
+        color: var(--text);
+      }
+
+      footer p {
+        font-size: 13px;
+        color: var(--text-light);
+        letter-spacing: 0.08em;
+        margin: 8px 0;
+      }
+
+      .explosion-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+          circle,
+          rgba(254, 190, 199, 0.9) 0%,
+          rgba(255, 241, 200, 0.7) 50%,
+          rgba(254, 190, 199, 0.5) 100%
+        );
+        pointer-events: none;
+        opacity: 0;
+        z-index: 10000;
+        transition: opacity 0.5s ease;
+      }
+
+      .explosion-overlay.active {
+        opacity: 1;
+      }
+
+      .explosion-flower {
+        position: fixed;
+        font-size: 30px;
+        color: var(--pink);
+        opacity: 0;
+        animation: explode 2s ease-out forwards;
+      }
+
+      @keyframes explode {
+        0% {
+          opacity: 1;
+          transform: translate(0, 0) rotate(0deg) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(var(--tx), var(--ty)) rotate(720deg) scale(0.3);
+        }
+      }
+
+      .instructions {
+        position: fixed;
+        bottom: 35px;
+        right: 35px;
+        background: var(--pink);
+        color: var(--white);
+        padding: 14px 28px;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        cursor: pointer;
+        z-index: 100;
+        transition: all 0.3s ease;
+        border: 1px solid var(--pink);
+      }
+
+      .instructions:hover {
+        background: var(--white);
+        color: var(--text);
+      }
+
+      @media (max-width: 768px) {
         .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 50px;
-            position: relative;
-            z-index: 10;
-        }
-
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 100px 0 80px;
-            position: relative;
-        }
-
-        .name-script {
-            font-family: 'Mrs Saint Delafield', cursive;
-            font-size: clamp(64px, 12vw, 110px);
-            color: var(--text);
-            margin-bottom: 2px;
-            letter-spacing: 0.03em;
-            position: relative;
-            display: inline-block;
+          padding: 0 25px;
         }
 
         .social-links {
-            display: flex;
-            gap: 30px;
-            margin-bottom: 50px;
-            justify-content: center;
+          flex-direction: column;
+          gap: 15px;
         }
 
-        .social-links a {
-            font-size: 14px;
-            color: var(--text-light);
-            text-decoration: none;
-            letter-spacing: 0.08em;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .social-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--pink);
-            transition: width 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--text);
-        }
-
-        .social-links a:hover::after {
-            width: 100%;
-        }
-
-        .subtitle {
-            font-size: 17px;
-            color: var(--text-light);
-            letter-spacing: 0.08em;
-            margin-bottom: 70px;
-        }
-
-        /* 3D Floating Shelves Library */
         .library-section {
-            margin-bottom: 48px;
-            margin-top: 120px;
-            max-width: 2000px;
-            margin-left: auto;
-            margin-right: auto;
-            width: 92%;
+          max-width: 100%;
         }
 
-        .library-title {
-            font-family: 'Mrs Saint Delafield', cursive;
-            font-size: 48px;
-            text-align: center;
-            margin-bottom: 24px;
-            color: var(--text);
-        }
-
-        .shelves-container {
-            position: relative;
-            min-height: 400px;
-        }
-
-        /* Individual shelf styling - 3D floating effect */
-        .shelf {
-            position: relative;
-            width: 100%;
-            height: 40px;
-            background: linear-gradient(180deg, 
-                #f8f8f8 0%,
-                #ffffff 20%,
-                #f5f5f5 80%,
-                #e8e8e8 100%);
-            margin-bottom: 200px;
-            box-shadow: 
-                0 18px 35px rgba(0, 0, 0, 0.18),
-                0 10px 20px rgba(0, 0, 0, 0.12),
-                inset 0 2px 4px rgba(255, 255, 255, 0.8),
-                inset 0 -2px 5px rgba(0, 0, 0, 0.05);
-            border-radius: 2px;
-        }
-
-        .shelf::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 4px;
-            background: linear-gradient(180deg, 
-                rgba(255, 255, 255, 0.95) 0%,
-                transparent 100%);
-            border-radius: 2px 2px 0 0;
-        }
-
-        .shelf::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 15px;
-            right: 15px;
-            height: 10px;
-            background: radial-gradient(ellipse at center, 
-                rgba(0, 0, 0, 0.25) 0%,
-                rgba(0, 0, 0, 0.08) 50%,
-                transparent 100%);
-            filter: blur(8px);
-        }
-
-        /* Books on shelf */
-        .books-row {
-            position: absolute;
-            bottom: 40px;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: center;
-            gap: 80px;
-            padding: 0 60px;
-        }
-
-        /* 3D Book styling */
         .book-3d {
-            width: 120px;
-            height: 160px;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            text-decoration: none;
-            transform-style: preserve-3d;
+          width: 80px;
+          height: 120px;
         }
 
-        .book-3d:hover {
-            transform: translateY(-15px) rotateY(5deg);
+        .books-row {
+          gap: 10px;
+          padding: 0 10px;
         }
 
-        /* Book front face */
-        .book-front {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, 
-                var(--cream) 0%, 
-                var(--pink) 100%);
-            border: 2px solid rgba(0, 0, 0, 0.1);
-            border-radius: 2px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 15px;
-            box-shadow: 
-                -8px 0 15px rgba(0, 0, 0, 0.15),
-                inset 2px 0 4px rgba(255, 255, 255, 0.5);
-        }
-
-        .book-front::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent 0%,
-                transparent 40%,
-                rgba(255, 255, 255, 0.2) 50%,
-                transparent 60%,
-                transparent 100%);
-        }
-
-        /* Book spine (left edge) */
-        .book-spine-3d {
-            position: absolute;
-            left: -12px;
-            top: 0;
-            width: 12px;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                rgba(0, 0, 0, 0.3) 0%,
-                rgba(0, 0, 0, 0.15) 50%,
-                rgba(0, 0, 0, 0.05) 100%);
-            transform: skewY(0deg);
-            border-radius: 2px 0 0 2px;
-        }
-
-        /* Book text */
         .book-title {
-            font-size: 13px;
-            letter-spacing: 0.08em;
-            color: var(--text);
-            font-weight: 400;
-            text-transform: uppercase;
-            text-align: center;
-            z-index: 1;
-            position: relative;
+          font-size: 10px;
         }
 
-
-        /* Different book colors - NEW PINK PALETTE */
-        .book-3d:nth-child(1) .book-front { background: linear-gradient(135deg, #ffe2f1 0%, #ffd3ea 100%); }
-        .book-3d:nth-child(2) .book-front { background: linear-gradient(135deg, #ffffd8 0%, #ffe2f1 100%); }
-        .book-3d:nth-child(3) .book-front { background: linear-gradient(135deg, #ffd3ea 0%, #ffb9de 100%); }
-        .book-3d:nth-child(4) .book-front { background: linear-gradient(135deg, #ffb9de 0%, #ffaad7 100%); }
-        .book-3d:nth-child(5) .book-front { background: linear-gradient(135deg, #ffffd8 0%, #ffd3ea 100%); }
-        .book-3d:nth-child(6) .book-front { background: linear-gradient(135deg, #ffe2f1 0%, #ffb9de 100%); }
-        .book-3d:nth-child(7) .book-front { background: linear-gradient(135deg, #ffd3ea 0%, #ffaad7 100%); }
-        .book-3d:nth-child(8) .book-front { background: linear-gradient(135deg, #ffffd8 0%, #ffe2f1 100%); }
-        .book-3d:nth-child(9) .book-front { background: linear-gradient(135deg, #ffb9de 0%, #ffd3ea 100%); }
-        .book-3d:nth-child(10) .book-front { background: linear-gradient(135deg, #ffaad7 0%, #ffb9de 100%); }
+        .shelf {
+          margin-bottom: 100px;
+        }
 
         .workspace {
-            position: relative;
-            min-height: 700px;
-            margin: 120px 0;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent,
-                transparent 39px,
-                rgba(74, 63, 58, 0.02) 39px,
-                rgba(74, 63, 58, 0.02) 40px
-            );
+          min-height: 900px;
         }
 
         .polaroid {
-            position: absolute;
-            width: 260px;
-            background: var(--white);
-            padding: 18px 18px 55px 18px;
-            box-shadow: 
-                0 4px 8px rgba(0, 0, 0, 0.08),
-                0 12px 30px rgba(0, 0, 0, 0.12);
-            cursor: move;
-            user-select: none;
-            transition: box-shadow 0.3s ease;
+          width: 220px;
         }
 
-        .polaroid:hover {
-            box-shadow: 
-                0 8px 16px rgba(254, 190, 199, 0.15),
-                0 20px 40px rgba(0, 0, 0, 0.15);
-        }
-
-        .polaroid-1 {
-            top: 60px;
-            left: 8%;
-            transform: rotate(-4deg);
-            z-index: 3;
+        .polaroid-1,
+        .polaroid-2,
+        .polaroid-3 {
+          left: 50%;
+          transform: translateX(-50%) rotate(-3deg);
         }
 
         .polaroid-2 {
-            top: 140px;
-            left: 38%;
-            transform: rotate(2deg);
-            z-index: 2;
+          top: 340px;
         }
 
         .polaroid-3 {
-            top: 220px;
-            right: 8%;
-            transform: rotate(-2deg);
-            z-index: 1;
-        }
-
-        .polaroid-photo {
-            width: 100%;
-            aspect-ratio: 1;
-            background: 
-                linear-gradient(135deg, 
-                    rgba(255, 241, 200, 0.3) 0%, 
-                    rgba(254, 190, 199, 0.5) 100%
-                ),
-                repeating-linear-gradient(
-                    45deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(254, 190, 199, 0.03) 2px,
-                    rgba(254, 190, 199, 0.03) 4px
-                );
-            margin-bottom: 18px;
-            border: 1px solid rgba(74, 63, 58, 0.08);
-        }
-
-        .polaroid-label {
-            text-align: center;
-            font-size: 15px;
-            letter-spacing: 0.02em;
-            color: var(--text);
-            font-style: italic;
-        }
-
-        .manifesto {
-            background: var(--cream);
-            padding: 90px 70px;
-            margin: 150px 0;
-            border: 1px solid rgba(254, 190, 199, 0.3);
-            position: relative;
-        }
-
-        .manifesto::before,
-        .manifesto::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            border: 1px solid var(--pink);
-        }
-
-        .manifesto::before {
-            top: -1px;
-            left: -1px;
-            border-right: none;
-            border-bottom: none;
-        }
-
-        .manifesto::after {
-            bottom: -1px;
-            right: -1px;
-            border-left: none;
-            border-top: none;
-        }
-
-        .manifesto-title {
-            font-family: 'Mrs Saint Delafield', cursive;
-            font-size: 52px;
-            text-align: center;
-            margin-bottom: 45px;
-            color: var(--text);
-        }
-
-        .manifesto-text {
-            font-size: 17px;
-            line-height: 2;
-            text-align: center;
-            max-width: 680px;
-            margin: 0 auto 28px;
-        }
-
-        .manifesto-text:last-of-type {
-            margin-bottom: 0;
+          top: 620px;
         }
 
         .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 30px;
-            margin: 100px 0;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 20px;
         }
 
-        .stat-box {
-            background: var(--white);
-            border: 2px solid var(--pink);
-            padding: 45px 30px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-        }
-
-        .stat-box:hover {
-            transform: translateY(-12px) rotate(1deg);
-            background: rgba(254, 190, 199, 0.15);
-            box-shadow: 0 15px 35px rgba(254, 190, 199, 0.25);
-        }
-
-        .stat-value {
-            font-size: 42px;
-            margin-bottom: 12px;
-            letter-spacing: 0.02em;
-        }
-
-        .stat-label {
-            font-size: 13px;
-            color: var(--text-light);
-            letter-spacing: 0.1em;
-        }
-
-        .pull-quote {
-            text-align: center;
-            padding: 24px 0 0 0;
-            margin: 4px 0 16px 0;
-        }
-
-        .quote-text {
-            font-size: clamp(28px, 5vw, 44px);
-            line-height: 1.6;
-            font-style: italic;
-            color: var(--text);
-            max-width: 750px;
-            margin: 0 auto;
-            position: relative;
-        }
-
-        .quote-text::before {
-            content: '"';
-            position: absolute;
-            left: -40px;
-            top: -10px;
-            font-size: 90px;
-            color: var(--pink);
-            opacity: 0.4;
-            font-family: 'Mrs Saint Delafield', cursive;
-        }
-
-        .contact {
-            text-align: center;
-            padding: 24px 0;
-        }
-
-        .contact-button {
-            display: inline-block;
-            padding: 18px 55px;
-            background: var(--pink);
-            color: var(--white);
-            text-decoration: none;
-            font-size: 15px;
-            letter-spacing: 0.15em;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 1px solid var(--pink);
-        }
-
-        .contact-button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(254, 190, 199, 0.4);
-            background: var(--cream);
-            color: var(--text);
-        }
-
-        footer {
-            text-align: center;
-            padding: 90px 0 60px;
-            border-top: 1px solid rgba(254, 190, 199, 0.3);
-            margin-top: 120px;
-        }
-
-        .footer-script {
-            font-family: 'Mrs Saint Delafield', cursive;
-            font-size: 32px;
-            margin-bottom: 15px;
-            color: var(--text);
-        }
-
-        footer p {
-            font-size: 13px;
-            color: var(--text-light);
-            letter-spacing: 0.08em;
-            margin: 8px 0;
-        }
-
-        .explosion-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, 
-                rgba(254, 190, 199, 0.9) 0%, 
-                rgba(255, 241, 200, 0.7) 50%, 
-                rgba(254, 190, 199, 0.5) 100%);
-            pointer-events: none;
-            opacity: 0;
-            z-index: 10000;
-            transition: opacity 0.5s ease;
-        }
-
-        .explosion-overlay.active {
-            opacity: 1;
-        }
-
-        .explosion-flower {
-            position: fixed;
-            font-size: 30px;
-            color: var(--pink);
-            opacity: 0;
-            animation: explode 2s ease-out forwards;
-        }
-
-        @keyframes explode {
-            0% {
-                opacity: 1;
-                transform: translate(0, 0) rotate(0deg) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(var(--tx), var(--ty)) rotate(720deg) scale(0.3);
-            }
+        .manifesto {
+          padding: 60px 35px;
         }
 
         .instructions {
-            position: fixed;
-            bottom: 35px;
-            right: 35px;
-            background: var(--pink);
-            color: var(--white);
-            padding: 14px 28px;
-            font-size: 13px;
-            letter-spacing: 0.08em;
-            cursor: pointer;
-            z-index: 100;
-            transition: all 0.3s ease;
-            border: 1px solid var(--pink);
+          bottom: 20px;
+          right: 20px;
+          padding: 12px 22px;
+          font-size: 12px;
         }
-
-        .instructions:hover {
-            background: var(--white);
-            color: var(--text);
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 25px;
-            }
-
-            .social-links {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .library-section {
-                max-width: 100%;
-            }
-
-            .book-3d {
-                width: 80px;
-                height: 120px;
-            }
-
-            .books-row {
-                gap: 10px;
-                padding: 0 10px;
-            }
-
-            .book-title {
-                font-size: 10px;
-            }
-
-            .shelf {
-                margin-bottom: 100px;
-            }
-
-            .workspace {
-                min-height: 900px;
-            }
-
-            .polaroid {
-                width: 220px;
-            }
-
-            .polaroid-1,
-            .polaroid-2,
-            .polaroid-3 {
-                left: 50%;
-                transform: translateX(-50%) rotate(-3deg);
-            }
-
-            .polaroid-2 {
-                top: 340px;
-            }
-
-            .polaroid-3 {
-                top: 620px;
-            }
-
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            .manifesto {
-                padding: 60px 35px;
-            }
-
-            .instructions {
-                bottom: 20px;
-                right: 20px;
-                padding: 12px 22px;
-                font-size: 12px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="explosion-overlay" id="explosionOverlay"></div>
 
-    <div class="flower" style="left: 10%; animation-delay: 0s;">✿</div>
-    <div class="flower" style="left: 30%; animation-delay: 3s;">✿</div>
-    <div class="flower" style="left: 50%; animation-delay: 6s;">✿</div>
-    <div class="flower" style="left: 70%; animation-delay: 9s;">✿</div>
-    <div class="flower" style="left: 90%; animation-delay: 12s;">✿</div>
+    <div class="flower" style="left: 10%; animation-delay: 0s">✿</div>
+    <div class="flower" style="left: 30%; animation-delay: 3s">✿</div>
+    <div class="flower" style="left: 50%; animation-delay: 6s">✿</div>
+    <div class="flower" style="left: 70%; animation-delay: 9s">✿</div>
+    <div class="flower" style="left: 90%; animation-delay: 12s">✿</div>
 
     <div class="instructions" onclick="triggerChaosMode()">chaos mode</div>
 
     <div class="container">
-        <section class="hero">
-            <h1 class="name-script">Michaela Nunn</h1>
+      <section class="hero">
+        <h1 class="name-script">Michaela Nunn</h1>
 
-            <div class="social-links">
-                <a href="https://github.com/michaelanunn" target="_blank">github</a>
-                <a href="https://www.linkedin.com/in/michaelanunn" target="_blank">linkedin</a>
-                <a href="https://x.com/michagoneschizo" target="_blank">x</a>
-            </div>
-
-
-            <p class="subtitle">builder, researcher, dreamer</p>
-
-
-<div> </div>
-<div> </div>
-
-
-
-            <!-- 3D Library with floating shelves -->
-            <div class="library-section">
-                <h2 class="library-title"></h2>
-                <div class="shelves-container">
-                    
-                    <!-- Top shelf - 3 books -->
-                    <div class="shelf">
-                        <div class="books-row">
-                            <a href="books.html" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Books</span>
-                                </div>
-                            </a>
-                            <a href="media.html" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Media</span>
-                                </div>
-                            </a>
-                            <a href="quotes.html" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Quotes</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Middle shelf - 4 books -->
-                    <div class="shelf">
-                        <div class="books-row">
-                            <a href="concepts.html" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Concepts</span>
-                                </div>
-                            </a>
-                            <a href="interior_design.html" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Interior Design</span>
-                                </div>
-                            </a>
-                            <a href="articles/index.html" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Newsletter</span>
-                                </div>
-                            </a>
-                            <a href="conversation.html" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Conversation</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Bottom shelf - 3 books -->
-                    <div class="shelf">
-                        <div class="books-row">
-                            <a href="https://getsatellite.lol" target="_blank" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Satellite</span>
-                                </div>
-                            </a>
-                            <a href="https://pronia.app" target="_blank" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">Pronia</span>
-                                </div>
-                            </a>
-                            <a href="https://speakstreak.app" target="_blank" class="book-3d">
-                                <div class="book-spine-3d"></div>
-                                <div class="book-front">
-                                    <span class="book-title">SpeakStreak</span>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <div class="pull-quote">
-            <p class="quote-text">
-                The future belongs to those who connect first
-            </p>
+        <div class="social-links">
+          <a href="https://github.com/michaelanunn" target="_blank">github</a>
+          <a href="https://www.linkedin.com/in/michaelanunn" target="_blank"
+            >linkedin</a
+          >
+          <a href="https://x.com/michagoneschizo" target="_blank">x</a>
         </div>
 
-        <div class="stats">
-            <div class="stat-box" onclick="this.style.background = this.style.background ? '' : 'var(--pink)'">
-                <div class="stat-value">2+</div>
-                <div class="stat-label">STARTUPS</div>
+        <p class="subtitle">builder, researcher, dreamer</p>
+
+        <div></div>
+        <div></div>
+
+        <!-- 3D Library with floating shelves -->
+        <div class="library-section">
+          <h2 class="library-title"></h2>
+          <div class="shelves-container">
+            <!-- Top shelf - 3 books -->
+            <div class="shelf">
+              <div class="books-row">
+                <a href="books.html" class="book-3d">
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Books</span>
+                  </div>
+                </a>
+                <a href="media.html" class="book-3d">
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Media</span>
+                  </div>
+                </a>
+                <a href="quotes.html" class="book-3d">
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Quotes</span>
+                  </div>
+                </a>
+              </div>
             </div>
-            <div class="stat-box" onclick="this.style.background = this.style.background ? '' : 'var(--pink)'">
-                <div class="stat-value">YC S26</div>
-                <div class="stat-label">TARGET</div>
+
+            <!-- Middle shelf - 4 books -->
+            <div class="shelf">
+              <div class="books-row">
+                <a href="concepts.html" class="book-3d">
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Concepts</span>
+                  </div>
+                </a>
+                <a href="interior_design.html" class="book-3d">
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Interior Design</span>
+                  </div>
+                </a>
+                <a href="articles/index.html" class="book-3d orb-glow">
+                  <div class="orb-angelic"></div>
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Newsletter</span>
+                  </div>
+                </a>
+                      /* Angelic glowing orb effect for Newsletter book */
+                      .orb-glow {
+                        position: relative;
+                        z-index: 2;
+                      }
+                      .orb-angelic {
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        width: 170px;
+                        height: 170px;
+                        transform: translate(-50%, -50%);
+                        border-radius: 50%;
+                        background: radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(255,220,255,0.55) 50%, rgba(255,200,255,0.15) 80%, transparent 100%);
+                        box-shadow: 0 0 60px 30px #fff6, 0 0 120px 60px #ffd6fa88, 0 0 32px 8px #fff7;
+                        pointer-events: none;
+                        z-index: 1;
+                        filter: blur(1.5px) brightness(1.2);
+                        animation: orb-pulse 2.5s infinite alternate cubic-bezier(0.4,0,0.2,1);
+                      }
+                      @keyframes orb-pulse {
+                        0% { filter: blur(2px) brightness(1.1); opacity: 0.85; }
+                        100% { filter: blur(4px) brightness(1.35); opacity: 1; }
+                      }
+                <a href="conversation.html" class="book-3d">
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Conversation</span>
+                  </div>
+                </a>
+              </div>
             </div>
-            <div class="stat-box" onclick="this.style.background = this.style.background ? '' : 'var(--pink)'">
-                <div class="stat-value">EEG/BCI</div>
-                <div class="stat-label">RESEARCH</div>
+
+            <!-- Bottom shelf - 3 books -->
+            <div class="shelf">
+              <div class="books-row">
+                <a
+                  href="https://getsatellite.lol"
+                  target="_blank"
+                  class="book-3d"
+                >
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Satellite</span>
+                  </div>
+                </a>
+                <a href="https://pronia.app" target="_blank" class="book-3d">
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">Pronia</span>
+                  </div>
+                </a>
+                <a
+                  href="https://speakstreak.app"
+                  target="_blank"
+                  class="book-3d"
+                >
+                  <div class="book-spine-3d"></div>
+                  <div class="book-front">
+                    <span class="book-title">SpeakStreak</span>
+                  </div>
+                </a>
+              </div>
             </div>
-            <div class="stat-box" onclick="this.style.background = this.style.background ? '' : 'var(--pink)'">
-                <div class="stat-value">18</div>
-                <div class="stat-label">AGE</div>
-            </div>
+          </div>
         </div>
+      </section>
 
+      <div class="pull-quote">
+        <p class="quote-text">The future belongs to those who connect first</p>
+      </div>
 
-        <section class="manifesto">
-            <h2 class="manifesto-title">Manifesto</h2>
-            <p class="manifesto-text">
-                I build at the intersection of consciousness and code—where neuroscience meets 
-                user experience, where systematic thinking meets human behavior, where philosophy 
-                meets engineering.
-            </p>
-            <p class="manifesto-text">
-                Dropped out of Mississippi State to build startups. Currently developing neuroadaptive 
-                systems and preparing for Y Combinator. Classical piano background. Deep interests 
-                in accelerationism, Deleuze & Guattari, and power dynamics.
-            </p>
-            <p class="manifesto-text">
-                Connection is the new intelligence. Every system I build explores how minds 
-                interface with technology.
-            </p>
-        </section>
+      <div class="stats">
+        <div
+          class="stat-box"
+          onclick="this.style.background = this.style.background ? '' : 'var(--pink)'"
+        >
+          <div class="stat-value">2+</div>
+          <div class="stat-label">STARTUPS</div>
+        </div>
+        <div
+          class="stat-box"
+          onclick="this.style.background = this.style.background ? '' : 'var(--pink)'"
+        >
+          <div class="stat-value">YC S26</div>
+          <div class="stat-label">TARGET</div>
+        </div>
+        <div
+          class="stat-box"
+          onclick="this.style.background = this.style.background ? '' : 'var(--pink)'"
+        >
+          <div class="stat-value">EEG/BCI</div>
+          <div class="stat-label">RESEARCH</div>
+        </div>
+        <div
+          class="stat-box"
+          onclick="this.style.background = this.style.background ? '' : 'var(--pink)'"
+        >
+          <div class="stat-value">18</div>
+          <div class="stat-label">AGE</div>
+        </div>
+      </div>
 
-        <section class="contact">
-            <a href="mailto:michaelalouisenunn@gmail.com" class="contact-button">GET IN TOUCH</a>
-        </section>
+      <section class="manifesto">
+        <h2 class="manifesto-title">Manifesto</h2>
+        <p class="manifesto-text">
+          I build at the intersection of consciousness and code—where
+          neuroscience meets user experience, where systematic thinking meets
+          human behavior, where philosophy meets engineering.
+        </p>
+        <p class="manifesto-text">
+          Dropped out of Mississippi State to build startups. Currently
+          developing neuroadaptive systems and preparing for Y Combinator.
+          Classical piano background. Deep interests in accelerationism, Deleuze
+          & Guattari, and power dynamics.
+        </p>
+        <p class="manifesto-text">
+          Connection is the new intelligence. Every system I build explores how
+          minds interface with technology.
+        </p>
+      </section>
+
+      <section class="contact">
+        <a href="mailto:michaelalouisenunn@gmail.com" class="contact-button"
+          >GET IN TOUCH</a
+        >
+      </section>
     </div>
 
     <footer>
-        <div class="footer-script">Michaela Nunn</div>
-        <p>San Francisco, California</p>
-        <p>Building with intention</p>
+      <div class="footer-script">Michaela Nunn</div>
+      <p>San Francisco, California</p>
+      <p>Building with intention</p>
     </footer>
 
     <script>
-        function triggerChaosMode() {
-            const overlay = document.getElementById('explosionOverlay');
-            overlay.style.background = 'radial-gradient(circle, rgba(255, 20, 147, 0.9) 0%, rgba(255, 105, 180, 0.7) 50%, rgba(255, 20, 147, 0.5) 100%)';
-            overlay.classList.add('active');
-            
-            for (let i = 0; i < 80; i++) {
-                setTimeout(() => {
-                    const chaos = document.createElement('div');
-                    chaos.className = 'explosion-flower';
-                    const symbols = ['🌷', '🌸', '🌺', '✨', '⭐', '💕', '💖', '✿'];
-                    chaos.textContent = symbols[Math.floor(Math.random() * symbols.length)];
-                    chaos.style.color = ['#ff1493', '#ff69b4', '#ff85c1', '#ffc0cb'][Math.floor(Math.random() * 4)];
-                    chaos.style.left = (50 + (Math.random() - 0.5) * 30) + '%';
-                    chaos.style.top = (50 + (Math.random() - 0.5) * 30) + '%';
-                    const angle = Math.random() * Math.PI * 2;
-                    const distance = 400 + Math.random() * 500;
-                    const tx = Math.cos(angle) * distance;
-                    const ty = Math.sin(angle) * distance;
-                    chaos.style.setProperty('--tx', tx + 'px');
-                    chaos.style.setProperty('--ty', ty + 'px');
-                    document.body.appendChild(chaos);
-                    setTimeout(() => chaos.remove(), 2500);
-                }, i * 20);
-            }
-            
-            setTimeout(() => {
-                overlay.classList.remove('active');
-                overlay.style.background = '';
-            }, 3000);
+      function triggerChaosMode() {
+        const overlay = document.getElementById("explosionOverlay");
+        overlay.style.background =
+          "radial-gradient(circle, rgba(255, 20, 147, 0.9) 0%, rgba(255, 105, 180, 0.7) 50%, rgba(255, 20, 147, 0.5) 100%)";
+        overlay.classList.add("active");
+
+        for (let i = 0; i < 80; i++) {
+          setTimeout(() => {
+            const chaos = document.createElement("div");
+            chaos.className = "explosion-flower";
+            const symbols = ["🌷", "🌸", "🌺", "✨", "⭐", "💕", "💖", "✿"];
+            chaos.textContent =
+              symbols[Math.floor(Math.random() * symbols.length)];
+            chaos.style.color = ["#ff1493", "#ff69b4", "#ff85c1", "#ffc0cb"][
+              Math.floor(Math.random() * 4)
+            ];
+            chaos.style.left = 50 + (Math.random() - 0.5) * 30 + "%";
+            chaos.style.top = 50 + (Math.random() - 0.5) * 30 + "%";
+            const angle = Math.random() * Math.PI * 2;
+            const distance = 400 + Math.random() * 500;
+            const tx = Math.cos(angle) * distance;
+            const ty = Math.sin(angle) * distance;
+            chaos.style.setProperty("--tx", tx + "px");
+            chaos.style.setProperty("--ty", ty + "px");
+            document.body.appendChild(chaos);
+            setTimeout(() => chaos.remove(), 2500);
+          }, i * 20);
         }
 
-        let activeElement = null;
-        let offsetX = 0;
-        let offsetY = 0;
-        let lastMoveTime = 0;
-        let dropTimeout = null;
+        setTimeout(() => {
+          overlay.classList.remove("active");
+          overlay.style.background = "";
+        }, 3000);
+      }
 
-        document.querySelectorAll('.polaroid').forEach(el => {
-            el.addEventListener('mousedown', function(e) {
-                activeElement = this;
-                const rect = this.getBoundingClientRect();
-                offsetX = e.clientX - rect.left;
-                offsetY = e.clientY - rect.top;
-                this.style.zIndex = 1000;
-                this.style.transition = 'none';
-                this.style.cursor = 'grabbing';
-                lastMoveTime = Date.now();
-            });
+      let activeElement = null;
+      let offsetX = 0;
+      let offsetY = 0;
+      let lastMoveTime = 0;
+      let dropTimeout = null;
+
+      document.querySelectorAll(".polaroid").forEach((el) => {
+        el.addEventListener("mousedown", function (e) {
+          activeElement = this;
+          const rect = this.getBoundingClientRect();
+          offsetX = e.clientX - rect.left;
+          offsetY = e.clientY - rect.top;
+          this.style.zIndex = 1000;
+          this.style.transition = "none";
+          this.style.cursor = "grabbing";
+          lastMoveTime = Date.now();
         });
+      });
 
-        document.addEventListener('mousemove', function(e) {
-            if (activeElement) {
-                const container = document.querySelector('.workspace');
-                const rect = container.getBoundingClientRect();
-                activeElement.style.left = (e.clientX - rect.left - offsetX) + 'px';
-                activeElement.style.top = (e.clientY - rect.top - offsetY) + 'px';
-                lastMoveTime = Date.now();
-                clearTimeout(dropTimeout);
-                dropTimeout = setTimeout(() => {
-                    if (activeElement && Date.now() - lastMoveTime >= 250) {
-                        activeElement.style.zIndex = '';
-                        activeElement.style.transition = '';
-                        activeElement.style.cursor = 'move';
-                        activeElement = null;
-                    }
-                }, 250);
+      document.addEventListener("mousemove", function (e) {
+        if (activeElement) {
+          const container = document.querySelector(".workspace");
+          const rect = container.getBoundingClientRect();
+          activeElement.style.left = e.clientX - rect.left - offsetX + "px";
+          activeElement.style.top = e.clientY - rect.top - offsetY + "px";
+          lastMoveTime = Date.now();
+          clearTimeout(dropTimeout);
+          dropTimeout = setTimeout(() => {
+            if (activeElement && Date.now() - lastMoveTime >= 250) {
+              activeElement.style.zIndex = "";
+              activeElement.style.transition = "";
+              activeElement.style.cursor = "move";
+              activeElement = null;
             }
-        });
+          }, 250);
+        }
+      });
 
-        setInterval(() => {
-            const flower = document.createElement('div');
-            flower.className = 'flower';
-            flower.textContent = '✿';
-            flower.style.color = 'var(--pink)';
-            flower.style.left = Math.random() * 100 + '%';
-            flower.style.animationDuration = (12 + Math.random() * 6) + 's';
-            document.body.appendChild(flower);
-            setTimeout(() => flower.remove(), 18000);
-        }, 4000);
+      setInterval(() => {
+        const flower = document.createElement("div");
+        flower.className = "flower";
+        flower.textContent = "✿";
+        flower.style.color = "var(--pink)";
+        flower.style.left = Math.random() * 100 + "%";
+        flower.style.animationDuration = 12 + Math.random() * 6 + "s";
+        document.body.appendChild(flower);
+        setTimeout(() => flower.remove(), 18000);
+      }, 4000);
 
-        document.addEventListener('mousemove', function(e) {
-            if (Math.random() > 0.85) {
-                const trail = document.createElement('div');
-                trail.textContent = '✿';
-                trail.style.position = 'fixed';
-                trail.style.left = e.clientX + 'px';
-                trail.style.top = e.clientY + 'px';
-                trail.style.color = 'var(--pink)';
-                trail.style.fontSize = '14px';
-                trail.style.pointerEvents = 'none';
-                trail.style.opacity = '0.6';
-                trail.style.transition = 'all 1.2s ease-out';
-                trail.style.zIndex = '9999';
-                document.body.appendChild(trail);
-                setTimeout(() => {
-                    trail.style.opacity = '0';
-                    trail.style.transform = 'translateY(-30px) scale(0.5)';
-                }, 100);
-                setTimeout(() => trail.remove(), 1300);
-            }
-        });
+      document.addEventListener("mousemove", function (e) {
+        if (Math.random() > 0.85) {
+          const trail = document.createElement("div");
+          trail.textContent = "✿";
+          trail.style.position = "fixed";
+          trail.style.left = e.clientX + "px";
+          trail.style.top = e.clientY + "px";
+          trail.style.color = "var(--pink)";
+          trail.style.fontSize = "14px";
+          trail.style.pointerEvents = "none";
+          trail.style.opacity = "0.6";
+          trail.style.transition = "all 1.2s ease-out";
+          trail.style.zIndex = "9999";
+          document.body.appendChild(trail);
+          setTimeout(() => {
+            trail.style.opacity = "0";
+            trail.style.transform = "translateY(-30px) scale(0.5)";
+          }, 100);
+          setTimeout(() => trail.remove(), 1300);
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
