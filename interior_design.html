@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,152 +5,345 @@
 	<title>Interior Design — Michaela Nunn</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
 	<style>
-		* { box-sizing: border-box; }
-		body {
+		* { 
+			box-sizing: border-box;
 			margin: 0;
 			padding: 0;
-			background-color: #000;
-			background-image: url('noise.png');
-			background-size: 200px 200px;
-			background-repeat: repeat;
-			color: #f5f5f5;
-			font-family: "Courier New", monospace;
 		}
-		.page {
-			max-width: 900px;
-			margin: 40px auto 80px;
-			padding: 0 18px;
-			text-align: center;
+
+		:root {
+			--cream: #ffffd8;
+			--pink: #ffb9de;
+			--pink-light: #ffe2f1;
+			--pink-medium: #ffd3ea;
+			--pink-accent: #ffaad7;
+			--white: #fdfbf9;
+			--text: #4a3f3a;
+			--text-light: #9a8f8a;
 		}
-		.nav {
-			text-align: left;
-			margin-bottom: 26px;
-			font-size: 11px;
-			letter-spacing: 0.16em;
-			text-transform: uppercase;
-		}
-		.nav a {
-			color:#f5f5f5;
-			text-decoration:none;
-			opacity:0.7;
-		}
-		.nav a:hover {
-			opacity:1;
-			text-decoration:underline;
-			letter-spacing:0.08em;
-			background-color:#111;
-		}
-		.divider {
-			height:1px;
-			background:#222;
-			max-width:340px;
-			margin:18px auto 26px;
-		}
-		.section-title {
-			font-size: 1.3em;
-			margin: 36px 0 12px;
-			letter-spacing: 0.04em;
-			color: #e0e0e0;
-			text-align: center;
-		}
-		.content {
-			margin: 0 auto 24px;
-			max-width: 700px;
-			text-align: left;
-			font-size: 1.08em;
+
+		body {
+			background: var(--white);
+			color: var(--text);
+			font-family: 'Crimson Pro', serif;
+			font-weight: 300;
 			line-height: 1.7;
 		}
+
+		.page {
+			max-width: 900px;
+			margin: 0 auto;
+			padding: 60px 40px 100px;
+		}
+
+		.nav {
+			text-align: left;
+			margin-bottom: 60px;
+			font-size: 14px;
+			letter-spacing: 0.08em;
+		}
+
+		.nav a {
+			color: var(--text-light);
+			text-decoration: none;
+			transition: all 0.3s ease;
+			position: relative;
+		}
+
+		.nav a::after {
+			content: '';
+			position: absolute;
+			bottom: -3px;
+			left: 0;
+			width: 0;
+			height: 1px;
+			background: var(--pink);
+			transition: width 0.3s ease;
+		}
+
+		.nav a:hover {
+			color: var(--text);
+		}
+
+		.nav a:hover::after {
+			width: 100%;
+		}
+
+		.page-title {
+			font-family: 'Mrs Saint Delafield', cursive;
+			font-size: clamp(48px, 8vw, 72px);
+			color: var(--text);
+			text-align: center;
+			margin-bottom: 60px;
+			letter-spacing: 0.03em;
+		}
+
+		.divider {
+			height: 1px;
+			background: rgba(255, 185, 222, 0.2);
+			max-width: 400px;
+			margin: 32px auto;
+		}
+
+		.section-title {
+			font-family: 'Mrs Saint Delafield', cursive;
+			font-size: 36px;
+			margin: 48px 0 24px;
+			color: var(--text);
+			text-align: center;
+			letter-spacing: 0.02em;
+		}
+
+		.content {
+			margin: 0 auto 32px;
+			max-width: 700px;
+			text-align: left;
+			font-size: 17px;
+			line-height: 1.8;
+			color: var(--text);
+		}
+
 		ul {
-			margin: 0 0 0 24px;
+			margin: 16px 0 0 32px;
 			padding: 0;
 		}
+
 		li {
-			margin-bottom: 8px;
+			margin-bottom: 12px;
+			color: var(--text);
 		}
+
 		.links {
-			margin: 18px 0 0 0;
-			font-size: 0.98em;
-			color: #b0e0ff;
+			margin: 24px 0 0 0;
+			font-size: 16px;
 		}
+
 		.links a {
-			color: #b0e0ff;
+			color: var(--pink-accent);
 			text-decoration: underline;
-			opacity: 0.85;
+			transition: all 0.3s ease;
 		}
+
 		.links a:hover {
-			opacity: 1;
-			background: #111;
+			color: var(--pink);
+		}
+
+		.visual-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 24px;
+			justify-content: center;
+			margin-bottom: 32px;
+		}
+
+		.visual-item {
+			width: 260px;
+			background: rgba(255, 241, 200, 0.1);
+			border: 1px solid rgba(74, 63, 58, 0.1);
+			padding: 12px;
+			border-radius: 4px;
+			box-shadow: 
+				0 4px 12px rgba(0, 0, 0, 0.08),
+				0 8px 24px rgba(0, 0, 0, 0.05);
+			transition: all 0.3s ease;
+		}
+
+		.visual-item:hover {
+			box-shadow: 
+				0 8px 20px rgba(255, 185, 222, 0.2),
+				0 12px 35px rgba(0, 0, 0, 0.1);
+			transform: translateY(-4px);
+		}
+
+		.visual-item img {
+			width: 100%;
+			display: block;
+			border-radius: 2px;
+		}
+
+		.instructions {
+			font-size: 15px;
+			color: var(--text-light);
+			margin-top: 24px;
+			line-height: 1.8;
+		}
+
+		.instructions strong {
+			color: var(--text);
+		}
+
+		.instructions span {
+			color: var(--pink-accent);
+			font-family: 'Courier New', monospace;
+		}
+
+		/* Decorative elements */
+		.flower {
+			position: fixed;
+			font-size: 20px;
+			color: var(--pink);
+			opacity: 0;
+			pointer-events: none;
+			animation: float-flower 15s ease-in-out infinite;
+			z-index: 1;
+		}
+
+		@keyframes float-flower {
+			0% {
+				opacity: 0;
+				transform: translateY(100vh) rotate(0deg);
+			}
+			10% {
+				opacity: 0.4;
+			}
+			90% {
+				opacity: 0.2;
+			}
+			100% {
+				opacity: 0;
+				transform: translateY(-100px) rotate(360deg);
+			}
+		}
+
+		footer {
+			text-align: center;
+			padding: 60px 0 40px;
+			border-top: 1px solid rgba(255, 185, 222, 0.3);
+			margin-top: 80px;
+		}
+
+		.footer-script {
+			font-family: 'Mrs Saint Delafield', cursive;
+			font-size: 28px;
+			margin-bottom: 12px;
+			color: var(--text);
+		}
+
+		footer p {
+			font-size: 13px;
+			color: var(--text-light);
+			letter-spacing: 0.08em;
+		}
+
+		@media (max-width: 768px) {
+			.page {
+				padding: 40px 20px 60px;
+			}
+
+			.visual-grid {
+				flex-direction: column;
+				align-items: center;
+			}
+
+			.visual-item {
+				width: 100%;
+				max-width: 320px;
+			}
 		}
 	</style>
 </head>
 <body>
+	<!-- Floating flowers -->
+	<div class="flower" style="left: 10%; animation-delay: 0s;">✿</div>
+	<div class="flower" style="left: 30%; animation-delay: 3s;">✿</div>
+	<div class="flower" style="left: 50%; animation-delay: 6s;">✿</div>
+	<div class="flower" style="left: 70%; animation-delay: 9s;">✿</div>
+	<div class="flower" style="left: 90%; animation-delay: 12s;">✿</div>
+
 	<div class="page">
 		<div class="nav">
 			<a href="index.html">← back</a>
 		</div>
+
+		<h1 class="page-title">Interior Design</h1>
+
 		<div class="section-title">On the Ideal of Dwelling</div>
 		<div class="divider"></div>
 		<div class="content">
-			In the end, a house is not merely a structure of brick and timber, but a silent witness to the private revolutions of the soul. The rooms we inhabit become the stage for our quiet victories and defeats, the walls absorbing the echoes of our ambitions and our despairs. To live well is to choose one’s confines with the same care as one chooses one’s words. The ideal of beauty in dwelling is not luxury for its own sake, but the deliberate pursuit of an environment that sharpens the mind and soothes the spirit.
+			In the end, a house is not merely a structure of brick and timber, but a silent witness to the private revolutions of the soul. The rooms we inhabit become the stage for our quiet victories and defeats, the walls absorbing the echoes of our ambitions and our despairs. To live well is to choose one's confines with the same care as one chooses one's words. The ideal of beauty in dwelling is not luxury for its own sake, but the deliberate pursuit of an environment that sharpens the mind and soothes the spirit.
 		</div>
+
 		<div class="section-title">Where I Would Live</div>
 		<div class="divider"></div>
 		<div class="content">
-			The end goal is not mere shelter, but a setting for the mind’s highest labors and the heart’s rarest joys. I would have:
+			The end goal is not mere shelter, but a setting for the mind's highest labors and the heart's rarest joys. I would have:
 			<ul>
 				<li>Luxurious mansions in McLean, Virginia—where the air is thick with the hush of old money and the lawns roll out like green carpets to the horizon.</li>
 				<li>Large estates in Massachusetts, where the winters are long and the libraries deep, and the architecture stands as a rebuke to the passing of time.</li>
-				<li>Above all, a top-floor residence on Broadway in San Francisco, where the city’s pulse is felt through the glass, and the fog drifts in like a half-remembered dream.</li>
+				<li>Above all, a top-floor residence on Broadway in San Francisco, where the city's pulse is felt through the glass, and the fog drifts in like a half-remembered dream.</li>
 			</ul>
 			These are not mere addresses, but ideals—each a fortress for the intellect, a sanctuary for the senses.
 		</div>
+
 		<div class="section-title">Interiors of the Mind</div>
 		<div class="divider"></div>
 		<div class="content">
 			The interiors I desire are not gaudy with excess, but composed with the severity of a well-edited sentence. I would have:
 			<ul>
 				<li>A grand piano, black and silent until the hour demands music, standing as a monument to discipline and beauty.</li>
-				<li>Architectural libraries built into the very bones of the house—shelves hidden within walls, books as insulation against the world’s noise.</li>
+				<li>Architectural libraries built into the very bones of the house—shelves hidden within walls, books as insulation against the world's noise.</li>
 				<li>Light that falls in deliberate patterns, illuminating thought and shadow alike.</li>
 				<li>Spaces for solitude, for conversation, for the slow accumulation of wisdom.</li>
 			</ul>
 			The house is not a display, but a tool—a means to cultivate the self, to resist the vulgarity of the age.
 		</div>
-		<div class="section-title">Inspirations &amp; References</div>
+
+		<div class="section-title">Inspirations & References</div>
 		<div class="divider"></div>
 		<div class="content links">
 			<ul>
 				<li><a href="https://www.decoratorshowcase.org/#walkthrough" target="_blank">Decorator Showcase: Contemporary Library House</a></li>
 			</ul>
-			These are not blueprints, but provocations—reminders that the highest form of luxury is the freedom to shape one’s own environment.
+			These are not blueprints, but provocations—reminders that the highest form of luxury is the freedom to shape one's own environment.
 		</div>
+
 		<div class="section-title">Visual Inspirations</div>
 		<div class="divider"></div>
 		<div class="content">
-			<div style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: center; margin-bottom: 18px;">
-				<div style="width: 260px; background: #111; border: 1px solid #222; padding: 10px; margin-bottom: 12px;">
-					<img src="covers/interior1.jpg" alt="Interior Inspiration 1" style="width:100%; display:block; margin-bottom:8px;" />
+			<div class="visual-grid">
+				<div class="visual-item">
+					<img src="covers/interior1.jpg" alt="Interior Inspiration 1" />
 				</div>
-				<div style="width: 260px; background: #111; border: 1px solid #222; padding: 10px; margin-bottom: 12px;">
-					<img src="covers/interior2.jpeg" alt="Interior Inspiration 2" style="width:100%; display:block; margin-bottom:8px;" />
+				<div class="visual-item">
+					<img src="covers/interior2.jpeg" alt="Interior Inspiration 2" />
 				</div>
-				<div style="width: 260px; background: #111; border: 1px solid #222; padding: 10px; margin-bottom: 12px;">
-					<img src="covers/interior3.jpg" alt="Interior Inspiration 3" style="width:100%; display:block; margin-bottom:8px;" />
-			
+				<div class="visual-item">
+					<img src="covers/interior3.jpg" alt="Interior Inspiration 3" />
 				</div>
 			</div>
-			<div style="font-size:1em; color:#e0e0e0; margin-top:18px;">
+			<div class="instructions">
 				<strong>Image Save Order:</strong><br>
-				1. Save your first inspiration image as <span style="color:#b0e0ff">covers/interior1.jpg</span><br>
-				2. Second image as <span style="color:#b0e0ff">covers/interior2.jpg</span><br>
-				3. Third image as <span style="color:#b0e0ff">covers/interior3.jpg</span><br>
+				1. Save your first inspiration image as <span>covers/interior1.jpg</span><br>
+				2. Second image as <span>covers/interior2.jpg</span><br>
+				3. Third image as <span>covers/interior3.jpg</span><br>
 				(Continue numbering for additional images as needed.)
 			</div>
 		</div>
+
+		<footer>
+			<div class="footer-script">Michaela Nunn</div>
+			<p>Building with intention</p>
+		</footer>
 	</div>
+
+	<script>
+		// Generate more floating flowers
+		setInterval(() => {
+			const flower = document.createElement('div');
+			flower.className = 'flower';
+			flower.textContent = '✿';
+			flower.style.left = Math.random() * 100 + '%';
+			flower.style.animationDuration = (12 + Math.random() * 6) + 's';
+			document.body.appendChild(flower);
+			setTimeout(() => flower.remove(), 18000);
+		}, 4000);
+	</script>
+
 	<script src="site-audio.js" defer></script>
 	<script src="site-spa.js" defer></script>
 </body>
 </html>
-
