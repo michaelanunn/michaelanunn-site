@@ -45,6 +45,38 @@
       rel="stylesheet"
     />
     <style>
+            /* Angelic glowing orb effect for Newsletter book */
+            .orb-glow {
+              position: relative;
+              z-index: 2;
+            }
+
+            .orb-angelic {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              width: 170px;
+              height: 170px;
+              transform: translate(-50%, -50%);
+              border-radius: 50%;
+              background: radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(255,220,255,0.55) 50%, rgba(255,200,255,0.15) 80%, transparent 100%);
+              box-shadow: 0 0 60px 30px rgba(255, 255, 255, 0.4), 0 0 120px 60px rgba(255, 214, 250, 0.53), 0 0 32px 8px rgba(255, 255, 255, 0.47);
+              pointer-events: none;
+              z-index: 1;
+              filter: blur(1.5px) brightness(1.2);
+              animation: orb-pulse 2.5s infinite alternate cubic-bezier(0.4,0,0.2,1);
+            }
+
+            @keyframes orb-pulse {
+              0% { 
+                filter: blur(2px) brightness(1.1); 
+                opacity: 0.85; 
+              }
+              100% { 
+                filter: blur(4px) brightness(1.35); 
+                opacity: 1; 
+              }
+            }
       * {
         margin: 0;
         padding: 0;
@@ -788,60 +820,36 @@
             </div>
 
             <!-- Middle shelf - 4 books -->
-            <div class="shelf">
-              <div class="books-row">
-                <a href="concepts.html" class="book-3d">
-                  <div class="book-spine-3d"></div>
-                  <div class="book-front">
-                    <span class="book-title">Concepts</span>
-                  </div>
-                </a>
-                <a href="interior_design.html" class="book-3d">
-                  <div class="book-spine-3d"></div>
-                  <div class="book-front">
-                    <span class="book-title">Interior Design</span>
-                  </div>
-                </a>
-                <a href="articles/index.html" class="book-3d orb-glow">
-                  <div class="orb-angelic"></div>
-                  <div class="book-spine-3d"></div>
-                  <div class="book-front">
-                    <span class="book-title">Newsletter</span>
-                  </div>
-                </a>
-                      /* Angelic glowing orb effect for Newsletter book */
-                      .orb-glow {
-                        position: relative;
-                        z-index: 2;
-                      }
-                      .orb-angelic {
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        width: 170px;
-                        height: 170px;
-                        transform: translate(-50%, -50%);
-                        border-radius: 50%;
-                        background: radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(255,220,255,0.55) 50%, rgba(255,200,255,0.15) 80%, transparent 100%);
-                        box-shadow: 0 0 60px 30px #fff6, 0 0 120px 60px #ffd6fa88, 0 0 32px 8px #fff7;
-                        pointer-events: none;
-                        z-index: 1;
-                        filter: blur(1.5px) brightness(1.2);
-                        animation: orb-pulse 2.5s infinite alternate cubic-bezier(0.4,0,0.2,1);
-                      }
-                      @keyframes orb-pulse {
-                        0% { filter: blur(2px) brightness(1.1); opacity: 0.85; }
-                        100% { filter: blur(4px) brightness(1.35); opacity: 1; }
-                      }
-                <a href="conversation.html" class="book-3d">
-                  <div class="book-spine-3d"></div>
-                  <div class="book-front">
-                    <span class="book-title">Conversation</span>
-                  </div>
-                </a>
-              </div>
-            </div>
-
+<!-- Middle shelf - 4 books -->
+<div class="shelf">
+  <div class="books-row">
+    <a href="concepts.html" class="book-3d">
+      <div class="book-spine-3d"></div>
+      <div class="book-front">
+        <span class="book-title">Concepts</span>
+      </div>
+    </a>
+    <a href="interior_design.html" class="book-3d">
+      <div class="book-spine-3d"></div>
+      <div class="book-front">
+        <span class="book-title">Interior Design</span>
+      </div>
+    </a>
+    <a href="articles/index.html" class="book-3d orb-glow">
+      <div class="orb-angelic"></div>
+      <div class="book-spine-3d"></div>
+      <div class="book-front">
+        <span class="book-title">Newsletter</span>
+      </div>
+    </a>
+    <a href="conversation.html" class="book-3d">
+      <div class="book-spine-3d"></div>
+      <div class="book-front">
+        <span class="book-title">Conversation</span>
+      </div>
+    </a>
+  </div>
+</div>
             <!-- Bottom shelf - 3 books -->
             <div class="shelf">
               <div class="books-row">
