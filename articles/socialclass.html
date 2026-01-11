@@ -1,150 +1,237 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>social class and opportunity blindness — Michaela Nunn</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        background-color: #000;
-        background-image: url("../noise.png");
-        background-size: 200px 200px;
-        background-repeat: repeat;
-        color: #f5f5f5;
-        font-family: "Courier New", monospace;
-        max-width: 760px;
-        margin: 40px auto 80px;
-        padding: 0 18px;
+<head>
+  <meta charset="UTF-8" />
+  <title>social class and opportunity blindness — Michaela Nunn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <style>
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #ffffd8;
+      --pink: #ffb9de;
+      --pink-light: #ffe2f1;
+      --pink-medium: #ffd3ea;
+      --pink-accent: #ffaad7;
+      --white: #fdfbf9;
+      --text: #4a3f3a;
+      --text-light: #9a8f8a;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Crimson Pro', serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    .nav {
+      text-align: left;
+      margin-bottom: 40px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    .nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: clamp(36px, 6vw, 52px);
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    em {
+      font-style: italic;
+      color: var(--text);
+    }
+
+    strong {
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, var(--pink-light), var(--pink-medium));
+      color: var(--text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 400;
+    }
+
+    /* Decorative elements */
+    .flower {
+      position: fixed;
+      font-size: 20px;
+      color: var(--pink);
+      opacity: 0;
+      pointer-events: none;
+      animation: float-flower 15s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes float-flower {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(0deg);
       }
-      a {
-        color: #f5f5f5;
-        text-decoration: none;
+      10% {
+        opacity: 0.4;
       }
-      a:hover {
-        text-decoration: underline;
-        letter-spacing: 0.08em;
-        background-color: #111;
+      90% {
+        opacity: 0.2;
       }
-      h1 {
-        text-transform: uppercase;
-        letter-spacing: 0.2em;
-        font-size: 16px;
-        margin-bottom: 8px;
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(360deg);
       }
-      .meta {
-        font-size: 11px;
-        opacity: 0.7;
-        margin-bottom: 18px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-top: 1px solid rgba(255, 185, 222, 0.3);
+      margin-top: 80px;
+    }
+
+    .footer-script {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 40px 20px 60px;
       }
-      p {
-        font-size: 13px;
-        line-height: 1.8;
-        opacity: 0.9;
-      }
-    </style>
-  </head>
-  <body>
-    <p><a href="index.html">← back</a></p>
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating flowers -->
+  <div class="flower" style="left: 10%; animation-delay: 0s;">✿</div>
+  <div class="flower" style="left: 30%; animation-delay: 3s;">✿</div>
+  <div class="flower" style="left: 50%; animation-delay: 6s;">✿</div>
+  <div class="flower" style="left: 70%; animation-delay: 9s;">✿</div>
+  <div class="flower" style="left: 90%; animation-delay: 12s;">✿</div>
+
+  <div class="page">
+    <div class="nav">
+      <a href="index.html">← back</a>
+    </div>
+
     <h1>Social class and opportunity blindness</h1>
     <div class="meta">14 December 2025</div>
 
     <p>
-      Poverty is not a material condition; it is an <strong>informational one</strong>.<br><br>
-      The market requires a psychic filter for its symmetric functions to operate. This filter is <strong>Opportunity Blindness</strong>: the necessary miscalibration of the temporal cost of a goal. It is the systemic illusion that allows the majority to trade their most finite resource—time—for a symmetric, linear return. It is hard to become rich, yes, but it is psychically harder to remain poor once the <em>Gnosis</em> of wealth generation has been received.<br><br>
-      The spectacle of this informational chasm is most visible at the points of contact between the asymmetric and the symmetric classes. Consider the perfect, contained system of the Balinese villa. The helper, a figure of <em>symmetric</em> labor, trades time for a provided room and a fixed duty. Her existence is a testament to the market's need for a class that cannot perceive the <em>asymmetry</em> of capital. She is close to the wealth, living within its physical manifestation, yet separated by an informational chasm as vast as the ocean. Her life is a perfect, closed loop of linear effort, a necessary cog in the maintenance of the asymmetric class's freedom.<br><br>
-      This is the core of the illusion: the perception of time spent for the goals that one wants. The symmetric class believes that the path to $100,000 is a linear accumulation of minimum wage hours. The asymmetric class knows that $100,000 is a single, high-velocity, informational act.<br><br>
-      There are doors you cannot leave once you have entered. The moment of true Gnosis is the psychic break. Once the mind processes the fact that <strong>$100,000 can be generated in a few seconds</strong>—a high-velocity, asymmetric act of capital—the old reality of minimum wage becomes a terminal absurdity. The symmetric trade of time for money is revealed as a lie, a necessary illusion for the maintenance of the lower castes.<br><br>
-      <span style="background:linear-gradient(90deg,#ff00b4,#ff6ec7);color:#fff;padding:2px 4px;border-radius:3px;">The knowledge itself is the new, irreversible class. Once you see the bigger picture of something, once you see what is possible, you cannot go back.</span> The mind that has witnessed the power of the asymmetric lever cannot return to the symmetric grind. The knowledge is the new, unshakeable foundation of character.<br><br>
+      Poverty is not a material condition; it is an <strong>informational one</strong>.
+    </p>
+
+    <p>
+      The market requires a psychic filter for its symmetric functions to operate. This filter is <strong>Opportunity Blindness</strong>: the necessary miscalibration of the temporal cost of a goal. It is the systemic illusion that allows the majority to trade their most finite resource—time—for a symmetric, linear return. It is hard to become rich, yes, but it is psychically harder to remain poor once the <em>Gnosis</em> of wealth generation has been received.
+    </p>
+
+    <p>
+      The spectacle of this informational chasm is most visible at the points of contact between the asymmetric and the symmetric classes. Consider the perfect, contained system of the Balinese villa. The helper, a figure of <em>symmetric</em> labor, trades time for a provided room and a fixed duty. Her existence is a testament to the market's need for a class that cannot perceive the <em>asymmetry</em> of capital. She is close to the wealth, living within its physical manifestation, yet separated by an informational chasm as vast as the ocean. Her life is a perfect, closed loop of linear effort, a necessary cog in the maintenance of the asymmetric class's freedom.
+    </p>
+
+    <p>
+      This is the core of the illusion: the perception of time spent for the goals that one wants. The symmetric class believes that the path to $100,000 is a linear accumulation of minimum wage hours. The asymmetric class knows that $100,000 is a single, high-velocity, informational act.
+    </p>
+
+    <p>
+      There are doors you cannot leave once you have entered. The moment of true Gnosis is the psychic break. Once the mind processes the fact that <strong>$100,000 can be generated in a few seconds</strong>—a high-velocity, asymmetric act of capital—the old reality of minimum wage becomes a terminal absurdity. The symmetric trade of time for money is revealed as a lie, a necessary illusion for the maintenance of the lower castes.
+    </p>
+
+    <p>
+      <span class="highlight">The knowledge itself is the new, irreversible class. Once you see the bigger picture of something, once you see what is possible, you cannot go back.</span> The mind that has witnessed the power of the asymmetric lever cannot return to the symmetric grind. The knowledge is the new, unshakeable foundation of character.
+    </p>
+
+    <p>
       Knowledge is power is true, but it is more than a cliché; it is the ultimate class barrier. The poor are not kept down by material lack, but by the systemic imposition of <strong>Opportunity Blindness</strong>. The true elite are not those with money, but those with the <em>Gnosis</em>—the knowledge of the asymmetric levers of the world. The only way to transcend the symmetric trap is through the acquisition of this forbidden knowledge.
     </p>
-      <!--
-      <h1>Social class and opportunity blindness</h1>
-      <div class="meta">14 December 2025</div>
 
-      <p>
-        The concept of opportunity blindness refers to a persons perception of the
-        time they spend for the goals that they want. It is hard to become rich but it is harder to stay poor when you know
-        how to do get rich. Knowledge is power is true. 
+    <footer>
+      <div class="footer-script">Michaela Nunn</div>
+      <p>Building with intention</p>
+    </footer>
+  </div>
 
-        <br> <br>
-        In Indonesia I have a helper who has been working for my family for the past 8 years. She lives at our  villa home in Bali 
-        and her only duty is to clean the home. Because she lives in the home with us and 
-        she has a room that we provided for her - she will be around and because of that she will do some other tasks like clean 
-      
-      </p>
-      -->
-  </body>
+  <script>
+    setInterval(() => {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.textContent = '✿';
+      flower.style.left = Math.random() * 100 + '%';
+      flower.style.animationDuration = (12 + Math.random() * 6) + 's';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 18000);
+    }, 4000);
+  </script>
+</body>
 </html>
 <!-- site audio control -->
 <script src="../site-audio.js" defer></script>
 <script src="../site-spa.js" defer></script>
-
-
-<!--
-I need a mentor to refine my speech
-to refine my taste in life and art
-to refine my taste in people
-to refine my taste in books
-
-no. i dont need a mentor to refine my taste
-
-i need a mentor to refine the quality
-of my speech and writing
-
-the byproduct will be a development in taste
-
-
-
-the ascetic idealist, the ascetic coder. the happiest ive evr been
-debloated from the world
-
-Beauty: a question? What is the best feeling you ever felt in your life?
-The chasm of desire being bridged. The same mechanism as addiction
-i could say that the best feeling i ever felt was 
-the feeling of acheiving material success or of
-sleeping in a luxury hotel room
-or of flying in an airplane
-shopping in dubai
-ive experienced it all
-the best feeling is raw pure desire for
-something
-desire has been the most  powerful force 
-to action i've ever had in my life
-
-it has come and realized in my life in one salient way
-
-the male form
-
-the male form is the purpose of my life
-
-it is the driver of my life
-
-i have desired to understand human connection to understand the male form
-
-it is something i will never understand
-
-i want to deconstruct the brain, i want to deconstruct the beauty. 
-
-The only times in life i have been sprung into action was 
-of the motivation of the attention of the male. 
-
-I do not care about anything else
-
-I am brought back to the fantasy of the male form every single time. 
-
-If you have to ask me how do i do this, how do i gain motivation
-
-I would tell you to not even start
-
-Contemplating the male form is effortless.
-
-it takes effort to divert my attention away from it
-
-if you do not feel this way about any project you are pursuing 
-
-do not even start
-
--->
