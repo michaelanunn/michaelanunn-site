@@ -1,0 +1,361 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Books â€” Michaela Nunn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <style>
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #ffffd8;
+      --pink: #ffb9de;
+      --pink-light: #ffe2f1;
+      --pink-medium: #ffd3ea;
+      --pink-accent: #ffaad7;
+      --white: #fdfbf9;
+      --text: #4a3f3a;
+      --text-light: #9a8f8a;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Crimson Pro', serif;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    .nav {
+      text-align: left;
+      margin-bottom: 60px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    .nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .page-title {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: clamp(48px, 8vw, 72px);
+      color: var(--text);
+      text-align: center;
+      margin-bottom: 60px;
+      letter-spacing: 0.03em;
+    }
+
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 40px;
+      padding: 20px 0;
+    }
+
+    .book-item {
+      text-align: center;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .book-item a {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .book-item:hover {
+      transform: translateY(-12px);
+    }
+
+    .book-cover {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2/3;
+      object-fit: cover;
+      border-radius: 4px;
+      box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 8px 24px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(74, 63, 58, 0.1);
+    }
+
+    .book-item:hover .book-cover {
+      box-shadow: 
+        0 8px 20px rgba(255, 185, 222, 0.3),
+        0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .book-title {
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+    }
+
+    .book-author {
+      margin-top: 6px;
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    /* Decorative elements */
+    .flower {
+      position: fixed;
+      font-size: 20px;
+      color: var(--pink);
+      opacity: 0;
+      pointer-events: none;
+      animation: float-flower 15s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes float-flower {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(0deg);
+      }
+      10% {
+        opacity: 0.4;
+      }
+      90% {
+        opacity: 0.2;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(360deg);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-top: 1px solid rgba(255, 185, 222, 0.3);
+      margin-top: 80px;
+    }
+
+    .footer-script {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 40px 20px 60px;
+      }
+
+      .books-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 30px;
+      }
+
+      .page-title {
+        margin-bottom: 40px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating flowers -->
+  <div class="flower" style="left: 10%; animation-delay: 0s;">âœ¿</div>
+  <div class="flower" style="left: 30%; animation-delay: 3s;">âœ¿</div>
+  <div class="flower" style="left: 50%; animation-delay: 6s;">âœ¿</div>
+  <div class="flower" style="left: 70%; animation-delay: 9s;">âœ¿</div>
+  <div class="flower" style="left: 90%; animation-delay: 12s;">âœ¿</div>
+
+  <div class="page">
+    <div class="nav">
+      <a href="index.html">&larr; back</a>
+    </div>
+
+    <h1 class="page-title">Books</h1>
+
+    <div class="books-grid">
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/54898389-the-almanack-of-naval-ravikant" target="_blank">
+          <img src="covers/naval-almanack.jpg" alt="Naval's Almanack" class="book-cover" />
+          <div class="book-title">The Almanack of Naval Ravikant</div>
+          <div class="book-author">Eric Jorgenson</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/35068319-harassment-architecture" target="_blank">
+          <img src="covers/harassment-architecture.jpg" alt="Harassment Architecture" class="book-cover" />
+          <div class="book-title">Harassment Architecture</div>
+          <div class="book-author">Mike Ma</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/410303.Simulacra_and_Simulation" target="_blank">
+          <img src="covers/simulacra-simulation.jpg" alt="Simulacra and Simulation" class="book-cover" />
+          <div class="book-title">Simulacra and Simulation</div>
+          <div class="book-author">Jean Baudrillard</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/30869.Grundrisse" target="_blank">
+          <img src="covers/book4.jpg" alt="Grundrisse" class="book-cover" />
+          <div class="book-title">Grundrisse</div>
+          <div class="book-author">Karl Marx</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/80331.On_the_Genealogy_of_Morals" target="_blank">
+          <img src="covers/book5.jpg" alt="Genealogy of Morals" class="book-cover" />
+          <div class="book-title">On the Genealogy of Morals</div>
+          <div class="book-author">Friedrich Nietzsche</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/155981.Psycho_Cybernetics" target="_blank">
+          <img src="covers/book6.jpg" alt="Psycho-Cybernetics" class="book-cover" />
+          <div class="book-title">Psycho-Cybernetics</div>
+          <div class="book-author">Maxwell Maltz</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/42733.The_Map_of_Consciousness_Explained" target="_blank">
+          <img src="covers/book7.jpg" alt="Map of Consciousness Explained" class="book-cover" />
+          <div class="book-title">Map of Consciousness Explained</div>
+          <div class="book-author">David R. Hawkins</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/569564.Only_Dull_People_Are_Brilliant_at_Breakfast" target="_blank">
+          <img src="covers/book9.jpg" alt="Only Dull People are Brilliant at Breakfast" class="book-cover" />
+          <div class="book-title">Only Dull People are Brilliant at Breakfast</div>
+          <div class="book-author">Oscar Wilde</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/118317.Anti_Oedipus?ref=nav_sb_ss_1_12" target="_blank">
+          <img src="covers/book10.jpeg" alt="A Thousand Plateaus" class="book-cover" />
+          <div class="book-title">Anti-Oedipus</div>
+          <div class="book-author">Gilles Deleuze & FÃ©lix Guattari</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/4934.The_Brothers_Karamazov" target="_blank">
+          <img src="covers/book11.jpg" alt="The Brothers Karamazov" class="book-cover" />
+          <div class="book-title">The Brothers Karamazov</div>
+          <div class="book-author">Fyodor Dostoevsky</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/30659.Meditations" target="_blank">
+          <img src="covers/book12.jpg" alt="Meditations" class="book-cover" />
+          <div class="book-title">Meditations</div>
+          <div class="book-author">Marcus Aurelius</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/30289.The_Republic" target="_blank">
+          <img src="covers/book14.jpg" alt="The Republic" class="book-cover" />
+          <div class="book-title">The Republic</div>
+          <div class="book-author">Plato</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/149283.Critique_of_Judgment" target="_blank">
+          <img src="covers/book15.jpg" alt="Critique of Judgement" class="book-cover" />
+          <div class="book-title">Critique of Judgement</div>
+          <div class="book-author">Immanuel Kant</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/9557.Sputnik_Sweetheart" target="_blank">
+          <img src="covers/book16.jpg" alt="Sputnik Sweetheart" class="book-cover" />
+          <div class="book-title">Sputnik Sweetheart</div>
+          <div class="book-author">Haruki Murakami</div>
+        </a>
+      </div>
+
+      <div class="book-item">
+        <a href="https://www.goodreads.com/book/show/359194.The_Lucifer_Effect" target="_blank">
+          <img src="covers/book17.jpg" alt="The Lucifer Effect" class="book-cover" />
+          <div class="book-title">The Lucifer Effect</div>
+          <div class="book-author">Philip Zimbardo</div>
+        </a>
+      </div>
+
+    <footer>
+      <div class="footer-script">Michaela Nunn</div>
+      <p>Building with intention</p>
+    </footer>
+  </div>
+
+  <script>
+    // Generate more floating flowers
+    setInterval(() => {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.textContent = 'âœ¿';
+      flower.style.left = Math.random() * 100 + '%';
+      flower.style.animationDuration = (12 + Math.random() * 6) + 's';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 18000);
+    }, 4000);
+  </script>
+  <script type="module" src="/site-motion.js"></script>
+</body>
+</html>

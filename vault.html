@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      background-image: url('noise.png');
+      background-size: 200px 200px;
+      background-repeat: repeat;
+      color: #f5f5f5;
+      font-family: "Courier New", monospace;
+      text-align: center;
+      padding-top: 80px;
+    }
+    input {
+      background: #000;
+      border: 1px solid #444;
+      color: #f5f5f5;
+      padding: 8px 10px;
+      letter-spacing: 0.2em;
+      width: 220px;
+      text-align: center;
+    }
+    button {
+      margin-top: 14px;
+      padding: 8px 22px;
+      border: 1px solid #f5f5f5;
+      background: #000;
+      color: #f5f5f5;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #111;
+    }
+    .error {
+      color: #c66;
+      margin-top: 10px;
+      height: 14px;
+      font-size: 11px;
+    }
+    a {
+      color: #f5f5f5;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <h1 style="letter-spacing:0.25em; text-transform:uppercase; font-size:16px;">Secret Vault</h1>
+  <p style="opacity:0.7; max-width:500px; margin:0 auto 20px;">
+    Enter a secret code. 
+    <br />
+Each person has a unique code. 
+    <br />
+    Do i mean each one of you, or me?
+  </p>
+
+  <!-- Space reserved for video embed -->
+  <div style="width:100%;max-width:520px;height:300px;margin:0 auto 32px auto;display:flex;align-items:center;justify-content:center;background:#18181822;border-radius:18px;box-shadow:0 2px 24px #0004;">
+    <!-- Video will go here -->
+  </div>
+  <form id="vault-form">
+    <input type="password" id="vault-input" autocomplete="off" />
+    <br />
+    <button type="submit">Enter</button>
+    <div id="vault-error" class="error"></div>
+  </form>
+
+<br
+    <!-- Less Secret Vault Section -->
+    <section id="less-secret-vault" style="margin-top:50px;">
+      <h1 style="letter-spacing:0.25em; text-transform:uppercase; font-size:16px;">Less Secret Vault</h1>
+      <p style="opacity:0.7; max-width:500px; margin:0 auto 20px;">Where am i? </p>
+      <form id="less-vault-form">
+        <input type="password" id="less-vault-input" autocomplete="off" />
+        <br />
+        <button type="submit">Enter</button>
+        <div id="less-vault-error" class="error"></div>
+      </form>
+    </section>
+
+  <p style="margin-top:40px;">
+
+    <!-- Project Navigation Boxes -->
+    <h1 style="margin-top:60px; margin-bottom:18px; font-size:22px; letter-spacing:0.18em; text-transform:uppercase; color:#f5f5f5;">website design files</h1>
+    <form id="design-files-form" style="margin-bottom:24px;">
+      <input type="password" id="design-files-input" placeholder="Enter password" autocomplete="off" />
+      <button type="submit">Unlock</button>
+      <div id="design-files-error" class="error"></div>
+    </form>
+    <div id="project-boxes" style="display:none; flex-wrap:wrap; justify-content:center; gap:32px; margin:0 auto 0 auto; max-width:900px;">
+      <div class="project-rect" data-link="pronia_more.html">Pronia</div>
+      <div class="project-rect" data-link="lexiconation_more.html">Lexiconation</div>
+      <div class="project-rect" data-link="satellite_more.html">Satellite</div>
+      <div class="project-rect" data-link="speakstreak_more.html">Speakstreak</div>
+      <!-- Add more boxes below as needed -->
+    </div>
+    <style>
+      .project-rect {
+        background: #181818;
+        border: 2px solid #444;
+        border-radius: 18px;
+        color: #f5f5f5;
+        font-size: 1.25em;
+        font-family: 'Courier New', monospace;
+        width: 210px;
+        height: 160px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 0;
+        cursor: pointer;
+        transition: background 0.18s, border 0.18s, box-shadow 0.18s;
+        box-shadow: 0 2px 12px #0006;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        user-select: none;
+      }
+      .project-rect:hover {
+        background: #232323;
+        border-color: #f5f5f5;
+        box-shadow: 0 4px 24px #000a;
+      }
+    </style>
+    <script>
+      // Project box click navigation
+      document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.project-rect').forEach(function(box) {
+          box.addEventListener('click', function() {
+            var link = box.getAttribute('data-link');
+            if (link) window.location.href = link;
+          });
+        });
+
+        // Website design files password protection
+        var designForm = document.getElementById('design-files-form');
+        var designInput = document.getElementById('design-files-input');
+        var designError = document.getElementById('design-files-error');
+        var projectBoxes = document.getElementById('project-boxes');
+        designForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          var v = (designInput.value || '').trim().toLowerCase();
+          if (v === 'love') {
+            projectBoxes.style.display = 'flex';
+            designForm.style.display = 'none';
+          } else {
+            designError.textContent = 'access denied.';
+            designInput.value = '';
+          }
+        });
+      });
+    </script>
+
+
+  <script>
+    (function(){
+      var form = document.getElementById('vault-form');
+      var input = document.getElementById('vault-input');
+      var error = document.getElementById('vault-error');
+
+      // decode mapping 
+      //harvey:h0x9a1q.html,neal:n12_x9.html,stafford:sff_77.html,conversation:cw_55.html,lihawa:l_hw8.html
+      // console tab and btoa("harvey:h0x9a1q.html,neal:n12_x9.html,stafford:sff_77.html")
+
+      var encoded = "aGFydmV5OmgweDlhMXEuaHRtbCxuZWFsOm4xMl94OS5odG1sLHN0YWZmb3JkOnNmZl83Ny5odG1s";
+      var decoded = atob(encoded);
+      var routes = {};
+      decoded.split(',').forEach(function(p){
+        var s = p.split(':');
+        routes[s[0]] = s[1];
+      });
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var v = (input.value || "").trim().toLowerCase();
+        if (routes[v]) {
+          window.location.href = routes[v];
+        } else {
+          error.textContent = "access denied.";
+          input.value = "";
+        }
+      });
+
+      // Less Secret Vault logic
+      // dogpatch:dogpatch.html, timebook123!:timebook_diary.html
+      // Add more passwords as needed, format: password:page.html
+      var lessEncoded = "ZG9ncGF0Y2g6ZG9ncGF0Y2guaHRtbCx0aW1lYm9vazEyMyE6dGltZWJvb2tfZGlhcnkuaHRtbA=="; // btoa("dogpatch:dogpatch.html,timebook123!:timebook_diary.html")
+      var lessDecoded = atob(lessEncoded);
+      var lessRoutes = {};
+      lessDecoded.split(',').forEach(function(p){
+        var s = p.split(':');
+        lessRoutes[s[0]] = s[1];
+      });
+
+      var lessForm = document.getElementById('less-vault-form');
+      var lessInput = document.getElementById('less-vault-input');
+      var lessError = document.getElementById('less-vault-error');
+
+      lessForm.addEventListener('submit', function(e){
+        e.preventDefault();
+        var v = (lessInput.value || "").trim().toLowerCase();
+        if (lessRoutes[v]) {
+          window.location.href = lessRoutes[v];
+        } else {
+          lessError.textContent = "access denied.";
+          lessInput.value = "";
+        }
+      });
+    })();
+  </script>
+  <script type="module" src="/site-motion.js"></script>
+</body>
+</html>
+<!-- site audio control -->
+<script src="site-audio.js" defer></script>
+<script src="site-spa.js" defer></script>
+

@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>social class and opportunity blindness â€” Michaela Nunn</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;1,300;1,400&family=Mrs+Saint+Delafield&display=swap" rel="stylesheet">
+  <style>
+    * { 
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --cream: #ffffd8;
+      --pink: #ffb9de;
+      --pink-light: #ffe2f1;
+      --pink-medium: #ffd3ea;
+      --pink-accent: #ffaad7;
+      --white: #fdfbf9;
+      --text: #4a3f3a;
+      --text-light: #9a8f8a;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--text);
+      font-family: 'Crimson Pro', serif;
+      font-weight: 300;
+      line-height: 1.8;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 60px 40px 100px;
+    }
+
+    .nav {
+      text-align: left;
+      margin-bottom: 40px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+    }
+
+    .nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--pink);
+      transition: width 0.3s ease;
+    }
+
+    .nav a:hover {
+      color: var(--text);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    h1 {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: clamp(36px, 6vw, 52px);
+      color: var(--text);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+      line-height: 1.3;
+    }
+
+    .meta {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 32px;
+      font-style: italic;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 24px;
+      color: var(--text);
+    }
+
+    em {
+      font-style: italic;
+      color: var(--text);
+    }
+
+    strong {
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, var(--pink-light), var(--pink-medium));
+      color: var(--text);
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-weight: 400;
+    }
+
+    /* Decorative elements */
+    .flower {
+      position: fixed;
+      font-size: 20px;
+      color: var(--pink);
+      opacity: 0;
+      pointer-events: none;
+      animation: float-flower 15s ease-in-out infinite;
+      z-index: 1;
+    }
+
+    @keyframes float-flower {
+      0% {
+        opacity: 0;
+        transform: translateY(100vh) rotate(0deg);
+      }
+      10% {
+        opacity: 0.4;
+      }
+      90% {
+        opacity: 0.2;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-100px) rotate(360deg);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 60px 0 40px;
+      border-top: 1px solid rgba(255, 185, 222, 0.3);
+      margin-top: 80px;
+    }
+
+    .footer-script {
+      font-family: 'Mrs Saint Delafield', cursive;
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    footer p {
+      font-size: 13px;
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 768px) {
+      .page {
+        padding: 40px 20px 60px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Floating flowers -->
+  <div class="flower" style="left: 10%; animation-delay: 0s;">âœ¿</div>
+  <div class="flower" style="left: 30%; animation-delay: 3s;">âœ¿</div>
+  <div class="flower" style="left: 50%; animation-delay: 6s;">âœ¿</div>
+  <div class="flower" style="left: 70%; animation-delay: 9s;">âœ¿</div>
+  <div class="flower" style="left: 90%; animation-delay: 12s;">âœ¿</div>
+
+  <div class="page">
+    <div class="nav">
+      <a href="index.html">â† back</a>
+    </div>
+
+    <h1>Social class and opportunity blindness</h1>
+    <div class="meta">14 December 2025</div>
+
+    <p>
+      Poverty is not a material condition; it is an <strong>informational one</strong>.
+    </p>
+
+    <p>
+      The market requires a psychic filter for its symmetric functions to operate. This filter is <strong>Opportunity Blindness</strong>: the necessary miscalibration of the temporal cost of a goal. It is the systemic illusion that allows the majority to trade their most finite resourceâ€”timeâ€”for a symmetric, linear return. It is hard to become rich, yes, but it is psychically harder to remain poor once the <em>Gnosis</em> of wealth generation has been received.
+    </p>
+
+    <p>
+      The spectacle of this informational chasm is most visible at the points of contact between the asymmetric and the symmetric classes. Consider the perfect, contained system of the Balinese villa. The helper, a figure of <em>symmetric</em> labor, trades time for a provided room and a fixed duty. Her existence is a testament to the market's need for a class that cannot perceive the <em>asymmetry</em> of capital. She is close to the wealth, living within its physical manifestation, yet separated by an informational chasm as vast as the ocean. Her life is a perfect, closed loop of linear effort, a necessary cog in the maintenance of the asymmetric class's freedom.
+    </p>
+
+    <p>
+      This is the core of the illusion: the perception of time spent for the goals that one wants. The symmetric class believes that the path to $100,000 is a linear accumulation of minimum wage hours. The asymmetric class knows that $100,000 is a single, high-velocity, informational act.
+    </p>
+
+    <p>
+      There are doors you cannot leave once you have entered. The moment of true Gnosis is the psychic break. Once the mind processes the fact that <strong>$100,000 can be generated in a few seconds</strong>â€”a high-velocity, asymmetric act of capitalâ€”the old reality of minimum wage becomes a terminal absurdity. The symmetric trade of time for money is revealed as a lie, a necessary illusion for the maintenance of the lower castes.
+    </p>
+
+    <p>
+      <span class="highlight">The knowledge itself is the new, irreversible class. Once you see the bigger picture of something, once you see what is possible, you cannot go back.</span> The mind that has witnessed the power of the asymmetric lever cannot return to the symmetric grind. The knowledge is the new, unshakeable foundation of character.
+    </p>
+
+    <p>
+      Knowledge is power is true, but it is more than a clichÃ©; it is the ultimate class barrier. The poor are not kept down by material lack, but by the systemic imposition of <strong>Opportunity Blindness</strong>. The true elite are not those with money, but those with the <em>Gnosis</em>â€”the knowledge of the asymmetric levers of the world. The only way to transcend the symmetric trap is through the acquisition of this forbidden knowledge.
+    </p>
+
+    <footer>
+      <div class="footer-script">Michaela Nunn</div>
+      <p>Building with intention</p>
+    </footer>
+  </div>
+
+  <script>
+    setInterval(() => {
+      const flower = document.createElement('div');
+      flower.className = 'flower';
+      flower.textContent = 'âœ¿';
+      flower.style.left = Math.random() * 100 + '%';
+      flower.style.animationDuration = (12 + Math.random() * 6) + 's';
+      document.body.appendChild(flower);
+      setTimeout(() => flower.remove(), 18000);
+    }, 4000);
+  </script>
+  <script type="module" src="/site-motion.js"></script>
+</body>
+</html>
+<!-- site audio control -->
+<script src="../site-audio.js" defer></script>
+<script src="../site-spa.js" defer></script>

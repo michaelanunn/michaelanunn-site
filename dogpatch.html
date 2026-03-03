@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Timeline Design Vault</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      background: #000 url('noise.png') repeat;
+      color: #f5f5f5;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 0 0 60px 0;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 700px;
+      margin: 60px auto 0 auto;
+      background: rgba(20,20,20,0.92);
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 36px 32px 32px 32px;
+      box-shadow: 0 2px 16px #000a;
+    }
+    h1 {
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-size: 20px;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .date {
+      color: #aaa;
+      font-size: 13px;
+      margin-bottom: 8px;
+      text-align: right;
+    }
+    article {
+      margin-bottom: 36px;
+      border-bottom: 1px dashed #333;
+      padding-bottom: 18px;
+    }
+    article:last-child {
+      border-bottom: none;
+    }
+    .spec-title {
+      font-size: 16px;
+      color: #f5f5f5;
+      margin-bottom: 6px;
+      font-weight: bold;
+    }
+    .spec-body {
+      font-size: 15px;
+      color: #e0e0e0;
+      white-space: pre-line;
+    }
+    a {
+      color: #f5f5f5;
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="sticky-top">
+    <a href="vault.html">Back to Vault</a>
+  </div>
+  <div id="enter-world-section" style="text-align:center; margin-top:60px;">
+    <button id="enter-world-btn" style="font-size:1.2em; padding:18px 44px; border-radius:12px; background:#181818; color:#f5f5f5; border:2px solid #444; letter-spacing:0.18em; text-transform:uppercase; cursor:pointer;">Enter World</button>
+  </div>
+  <div class="moodboard-container" id="moodboard-container" style="display:none;">
+    <h1 style="text-align:center; letter-spacing:0.18em; text-transform:uppercase; font-size:22px; margin-bottom:38px;">Dogpatch: 10-Year Moodboard</h1>
+    <div class="vision-row">
+      <div class="vision-card vision1">
+        <div class="vision-title">Vision 1</div>
+        <div class="vision-desc">
+          Living and renting a home with my true love in Dogpatch, SF. I have successfully created a company and my childhood lover wakes up in bed next to me. Material success is present, but the real value is in love, knowledge, and beauty.
+        </div>
+        <div class="vision-img-area" id="vision1-img-area">
+          <label for="vision1-img" class="img-label">Add Image</label>
+          <input type="file" id="vision1-img" accept="image/*" style="display:none;" multiple />
+          <div class="vision-img-list" id="vision1-img-list"></div>
+        </div>
+      </div>
+      <div class="vision-card vision2">
+        <div class="vision-title">Vision 2</div>
+        <div class="vision-desc">
+          My childhood lover turns me down. Megalomania: not constrained by emotions or the past. A complete force of creativity and will. Obsession, passion, pursuit of truth and beauty, and elite taste. Material world success, big houses, Y Combinator names, and the ideal of knowledge.
+        </div>
+        <div class="vision-img-area" id="vision2-img-area">
+          <label for="vision2-img" class="img-label">Add Image</label>
+          <input type="file" id="vision2-img" accept="image/*" style="display:none;" multiple />
+          <div class="vision-img-list" id="vision2-img-list"></div>
+  <script>
+    // Enter World button logic
+    document.getElementById('enter-world-btn').onclick = function() {
+      document.getElementById('enter-world-section').style.display = 'none';
+      document.getElementById('moodboard-container').style.display = 'block';
+    };
+
+    // Vision 1: multiple image upload/pinterest style
+    document.querySelector('.img-label[for="vision1-img"]').onclick = function() {
+      document.getElementById('vision1-img').click();
+    };
+    document.getElementById('vision1-img').onchange = function(e) {
+      const files = Array.from(e.target.files);
+      const list = document.getElementById('vision1-img-list');
+      files.forEach(function(file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          const wrap = document.createElement('div');
+          wrap.className = 'vision-img-wrap';
+          const img = document.createElement('img');
+          img.src = ev.target.result;
+          const btn = document.createElement('button');
+          btn.className = 'remove-img-btn';
+          btn.innerHTML = '&times;';
+          btn.onclick = function() { wrap.remove(); };
+          wrap.appendChild(img);
+          wrap.appendChild(btn);
+          list.appendChild(wrap);
+        };
+        reader.readAsDataURL(file);
+      });
+      e.target.value = '';
+    };
+
+    // Vision 2: multiple image upload/pinterest style
+    document.querySelector('.img-label[for="vision2-img"]').onclick = function() {
+      document.getElementById('vision2-img').click();
+    };
+    document.getElementById('vision2-img').onchange = function(e) {
+      const files = Array.from(e.target.files);
+      const list = document.getElementById('vision2-img-list');
+      files.forEach(function(file) {
+        const reader = new FileReader();
+        reader.onload = function(ev) {
+          const wrap = document.createElement('div');
+          wrap.className = 'vision-img-wrap';
+          const img = document.createElement('img');
+          img.src = ev.target.result;
+          const btn = document.createElement('button');
+          btn.className = 'remove-img-btn';
+          btn.innerHTML = '&times;';
+          btn.onclick = function() { wrap.remove(); };
+          wrap.appendChild(img);
+          wrap.appendChild(btn);
+          list.appendChild(wrap);
+        };
+        reader.readAsDataURL(file);
+      });
+      e.target.value = '';
+    };
+  </script>
+  <script type="module" src="/site-motion.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,906 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Michaela Nunn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Personal index of Michaela Nunn – projects, life canon, and links."
+    />
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #000;
+        background-image: url("noise.png");
+        background-size: 200px 200px;
+        background-repeat: repeat;
+        color: #f5f5f5;
+        font-family: "Courier New", monospace;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: all 140ms ease-out;
+      }
+
+      a:hover {
+        text-decoration: underline;
+        letter-spacing: 0.08em;
+        background-color: #111;
+      }
+
+      .page {
+        max-width: 820px;
+        margin: 48px auto 80px;
+        padding: 0 18px;
+      }
+
+      header {
+        margin-bottom: 56px;
+        border-bottom: 1px solid #222;
+        padding-bottom: 24px;
+      }
+
+      .header-inner {
+        text-align: center;
+      }
+
+      .site-title {
+        font-size: 26px;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+      }
+
+      .halo {
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+        opacity: 0.7;
+      }
+
+      nav {
+        margin-top: 22px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      nav a {
+        margin: 0 10px;
+        padding: 3px 4px;
+        border-bottom: 1px solid transparent;
+      }
+
+      nav a:hover {
+        border-bottom: 1px solid #f5f5f5;
+      }
+
+      .intro {
+        margin-top: 30px;
+        font-size: 13px;
+        line-height: 1.7;
+        max-width: 640px;
+        margin-left: auto;
+        margin-right: auto;
+        opacity: 0.9;
+      }
+
+      section {
+        margin-top: 52px;
+        padding-top: 18px;
+        border-top: 1px solid #222;
+      }
+
+      section h2 {
+        margin: 0 0 12px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+      }
+
+      .list {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 13px;
+      }
+
+      .list li {
+        margin-bottom: 10px;
+      }
+
+      .bullet::before {
+        content: "• ";
+        opacity: 0.55;
+      }
+
+      .meta {
+        display: block;
+        font-size: 11px;
+        opacity: 0.6;
+        margin-top: 2px;
+      }
+
+      .canon-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 18px;
+        margin-top: 10px;
+      }
+
+      .canon-item {
+        border: 1px solid #222;
+        padding: 8px;
+        min-height: 110px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        background-color: rgba(5, 5, 5, 0.9);
+        transition: transform 120ms ease-out, box-shadow 120ms ease-out,
+          border-color 120ms ease-out;
+      }
+
+      .canon-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 12px rgba(255, 255, 255, 0.08);
+        border-color: #f5f5f5;
+      }
+
+      .canon-title {
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+      }
+
+      .canon-note {
+        font-size: 11px;
+        opacity: 0.75;
+        margin-top: 6px;
+      }
+
+      .canon-img {
+        margin-top: 8px;
+        border: 1px solid #333;
+        padding: 2px;
+      }
+
+      .canon-img img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* Carousel styles (Netflix-like horizontal scroller) */
+      .carousel {
+        position: relative;
+        margin-top: 18px;
+        margin-bottom: 28px;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: 12px;
+        overflow-x: auto;
+        scroll-behavior: smooth;
+        padding: 12px 24px;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+      }
+
+      .carousel-item {
+        flex: 0 0 200px;
+        background-color: rgba(5, 5, 5, 0.98);
+        border: 1px solid #000;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        color: #f5f5f5;
+        scroll-snap-align: center;
+        -webkit-tap-highlight-color: transparent;
+        outline: none;
+      }
+
+      /* reserve space for ~10 lines of text above the image */
+      .canon-top {
+        min-height: 220px;
+        overflow: hidden;
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        display: block;
+        border: 1px solid #111;
+        margin-top: 12px;
+        outline: none;
+        -webkit-user-drag: none;
+      }
+
+      .carousel-caption {
+        margin-top: 8px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        text-align: center;
+        opacity: 0.9;
+      }
+
+      .carousel-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #000;
+        border: none;
+        color: #f5f5f5;
+        width: 32px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        cursor: pointer;
+        z-index: 6;
+        opacity: 0.95;
+      }
+      .carousel-arrow:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      .carousel-arrow:active {
+        outline: none;
+        box-shadow: none;
+      }
+      .carousel-arrow::-moz-focus-inner {
+        border: 0;
+      }
+      .carousel-arrow,
+      .carousel-arrow * {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .carousel-arrow {
+        -webkit-tap-highlight-color: transparent;
+        appearance: none;
+      }
+
+      /* remove tap highlight on track */
+      .carousel-track,
+      .carousel-item {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .carousel-arrow.prev {
+        left: 8px;
+      }
+
+      .carousel-arrow.next {
+        right: 8px;
+      }
+
+      .carousel-arrow:focus {
+        outline: 2px solid #fff;
+      }
+
+      .carousel-track.dragging {
+        cursor: grabbing;
+      }
+
+      /* Hide native scrollbar but keep scrolling functionality */
+      .carousel-track {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+      }
+
+      .carousel-track::-webkit-scrollbar {
+        display: none; /* Safari and Chrome */
+        height: 0;
+      }
+
+      @media (max-width: 640px) {
+        .carousel-item img {
+          height: 140px;
+        }
+        .carousel-item {
+          flex: 0 0 160px;
+        }
+        .carousel-arrow {
+          width: 32px;
+          height: 48px;
+          font-size: 20px;
+        }
+        .carousel-track {
+          padding: 12px 18px;
+        }
+      }
+
+      footer {
+        margin-top: 64px;
+        font-size: 10px;
+        opacity: 0.55;
+        text-transform: uppercase;
+        letter-spacing: 0.16em;
+        text-align: center;
+      }
+
+      /* audio player */
+      .music {
+        margin-top: 18px;
+        text-align: center;
+      }
+      .music audio {
+        width: 100%;
+        max-width: 420px;
+      }
+
+      @media (max-width: 640px) {
+        .page {
+          margin-top: 32px;
+        }
+        .site-title {
+          letter-spacing: 0.18em;
+        }
+        nav {
+          letter-spacing: 0.14em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <header id="home">
+        <div class="header-inner">
+          <link rel="icon" href="favicon.ico" type="image/x-icon" />
+          <div class="site-title">Michaela Nunn</div>
+          <div class="halo"></div>
+
+          <nav>
+            <a href="#projects">Projects</a>
+            <a href="#canon">Life&nbsp;Canon</a>
+            <a href="#catalogs">Catalogs</a>
+            <a href="#socials">Socials</a>
+          </nav>
+
+          <p class="intro"></p>
+        </div>
+      </header>
+
+      <!-- SECRET VAULT BUTTON -->
+      <section
+        id="vault"
+        style="margin-top: 12px; padding-top: 1px; border-top: 1px solid #222"
+      >
+        <div style="text-align: center">
+          <a
+            href="vault.html"
+            style="
+              display: inline-block;
+              padding: 8px 24px;
+              border: 1px solid #f5f5f5;
+              text-transform: uppercase;
+              letter-spacing: 0.18em;
+              font-size: 11px;
+              margin-top: -6px;
+            "
+          >
+            Enter Vault
+          </a>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Projects</h2>
+        <ul class="list">
+          <li class="bullet">
+            <a href="https://getsatellite.lol" target="_blank" rel="noopener">
+              Satellite
+            </a>
+            <span class="meta">Connections. University cohort.</span>
+          </li>
+          <li class="bullet">
+            <a href="https://pronia.app" target="_blank" rel="noopener">
+              Pronia
+            </a>
+            <span class="meta">The platform for musicians. </span>
+          </li>
+          <li class="bullet">
+            <a href="https://speakstreak.app" target="_blank" rel="noopener">
+              SpeakStreak
+            </a>
+            <span class="meta"
+              >Conversations with yourself. I wish we could hear our own voices
+              as others do.</span
+            >
+          </li>
+          <li class="bullet">
+            <a href="https://lexiconation.app" target="_blank" rel="noopener">
+              Lexiconation
+            </a>
+            <span class="meta"
+              >Diversify your lexicon. You would hate to lose your memory.
+            </span>
+          </li>
+        </ul>
+      </section>
+      <!--
+      
+
+
+
+
+
+-->
+      <section id="canon">
+        <h2>Life Canon. Time is not linear. Inflection points</h2>
+        <p style="font-size: 12px; opacity: 0.8; max-width: 640px">
+          Man does not step into the same river twice.
+        </p>
+        <!-- Carousel where the black .canon-item containers are the slides -->
+        <div class="carousel" aria-label="Life canon carousel">
+          <button class="carousel-arrow prev" aria-label="Previous">‹</button>
+          <div class="carousel-track">
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">What do you believe in?</div>
+                <div class="canon-note"></div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img1.jpg" alt="Naval's Almanack cover" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Innocence</div>
+                <div class="canon-note">You could be in paradise</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img2.jpg" alt="Innocence" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Systems</div>
+                <div class="canon-note"></div>
+              </div>
+              <div class="canon-img">
+                <img
+                  src="canon/img3.jpg"
+                  alt="Simulacra and Simulation cover"
+                />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">devoid of noise</div>
+                <div class="canon-note">silence</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img4.jpg" alt="slot" />
+              </div>
+            </div>
+
+            <!-- Filled additional slides cycling img4, img5, img6 -->
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">distraction</div>
+                <div class="canon-note"></div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img5.jpg" alt="Image 4" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Forgotten</div>
+                <div class="canon-note">Noxubee</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img6.jpg" alt="Image 5" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Rotten</div>
+                <div class="canon-note"></div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img7.jpg" alt="Image 6" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Decadence</div>
+                <div class="canon-note">consumerism</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img8.jpg" alt="Image 4" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title"><p>positiviity</p></div>
+                <div class="canon-note"></div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img9.jpg" alt="Image 5" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">perception</div>
+                <div class="canon-note">We are all one</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img10.jpg" alt="Image 6" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Enlightenment</div>
+                <div class="canon-note">Kindness</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img11.jpg" alt="Image 4" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Vehicles</div>
+                <div class="canon-note">Last time or first time</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img12.jpg" alt="Image 5" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Morality</div>
+                <div class="canon-note">Excellence</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img13.jpg" alt="Image 6" />
+              </div>
+            </div>
+
+            <div class="canon-item carousel-item">
+              <div class="canon-top">
+                <div class="canon-title">Too Late</div>
+                <div class="canon-note">Oh well</div>
+              </div>
+              <div class="canon-img">
+                <img src="canon/img14.jpg" alt="Image 4" />
+              </div>
+            </div>
+          </div>
+          <button class="carousel-arrow next" aria-label="Next">›</button>
+        </div>
+      </section>
+
+      <section id="catalogs">
+        <h2>Catalogs</h2>
+        <p
+          style="
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 640px;
+            opacity: 0.8;
+          "
+        >
+          silent archives:
+          <br />
+          → <a href="books.html">Books</a> – bookshelf.
+          <br />
+          → <a href="media.html">Media</a> – cinematogrpahy; music; art; poetry.
+          <br />
+          → <a href="quotes.html">Quotes</a> – inspirational. stamped ideas and
+          abstracts:
+          <br />
+          → <a href="concepts.html">Concepts</a> – economics, philosophy, and
+          math.
+   <br />
+          → <a href="interior_design.html">Interior design</a> - appreiation of beauty. 
+
+          
+
+          <br />
+          <br />
+
+          newsletter:
+          <br />
+          → <a href="articles/index.html">My Newsletter</a> – future
+          predictions, status quo.
+          <br />
+          <br />
+
+          in company:
+          <br />
+          → <a href="conversation.html">Conversation</a> – people are wonderful
+        </p>
+      </section>
+
+      <section id="identity">
+        <h2>Identity</h2>
+        <p
+          style="
+            font-size: 13px;
+            line-height: 1.6;
+            max-width: 640px;
+            opacity: 0.8;
+          "
+        >
+          2007 August 15
+        </p>
+      </section>
+
+      <section id="socials">
+        <h2>Reach me</h2>
+        <ul class="list">
+          <li class="bullet">
+            <a
+              href="https://github.com/michaelanunn"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+          </li>
+          <li class="bullet">
+            <a
+              href="https://www.linkedin.com/in/michaelanunn"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </li>
+          <li class="bullet">
+            <a href="https://x.com/luwezer" target="_blank" rel="noopener"
+              >X
+            </a>
+          </li>
+          <li class="bullet">
+            <a href="mailto:michaelalouisenunn@gmail.com">Email</a>
+          </li>
+        </ul>
+      </section>
+
+
+      <footer>© <span id="year"></span> *</footer>
+    </div>
+
+    <script>
+      // year
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // Secret page: type "harvey" anywhere -> vault
+      (function () {
+        var buffer = "";
+        var password = "harvey";
+
+        document.addEventListener("keydown", function (e) {
+          var key = e.key.toLowerCase();
+          if (key.length === 1 && key.match(/[a-z]/)) {
+            buffer += key;
+            if (buffer.length > password.length) {
+              buffer = buffer.slice(-password.length);
+            }
+            if (buffer === password) {
+              window.location.href = "vault.html";
+            }
+          } else if (key === "escape") {
+            buffer = "";
+          }
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var track = document.querySelector(".carousel-track");
+        if (!track) return;
+
+        // helper to get item width + gap
+        function itemWidth() {
+          var item = track.querySelector(".carousel-item");
+          if (!item) return 220;
+          var gap = parseInt(getComputedStyle(track).gap) || 12;
+          return Math.round(item.getBoundingClientRect().width + gap);
+        }
+
+        // prevent native image drag
+        track.querySelectorAll("img").forEach(function (img) {
+          img.draggable = false;
+        });
+
+        // clone slides to allow smooth infinite looping
+        var originalSlides = Array.from(track.children);
+        var originalCount = originalSlides.length;
+
+        // append clones of originals
+        originalSlides.forEach(function (s) {
+          track.appendChild(s.cloneNode(true));
+        });
+
+        // prepend clones of originals (in reverse order)
+        for (var i = originalCount - 1; i >= 0; i--) {
+          track.insertBefore(
+            originalSlides[i].cloneNode(true),
+            track.firstChild
+          );
+        }
+
+        // start positioned at the first original slide
+        function jumpToStart() {
+          track.scrollLeft = itemWidth() * originalCount;
+        }
+        // allow layout to settle
+        setTimeout(jumpToStart, 50);
+
+        var prev = document.querySelector(".carousel-arrow.prev");
+        var next = document.querySelector(".carousel-arrow.next");
+
+        // prevent mouse/touch/pointer interactions from focusing the arrow buttons
+        function preventPointerFocus(btn) {
+          if (!btn) return;
+          btn.addEventListener("pointerdown", function (e) {
+            if (
+              e.pointerType === "mouse" ||
+              e.pointerType === "pen" ||
+              e.pointerType === "touch"
+            ) {
+              e.preventDefault();
+            }
+          });
+        }
+        preventPointerFocus(prev);
+        preventPointerFocus(next);
+
+        // index-based smooth scrolling for less staccato feel
+        var currentIndex = 0; // 0..originalCount-1
+        function normalizeIndex(i) {
+          return ((i % originalCount) + originalCount) % originalCount;
+        }
+
+        function scrollToIndex(i, behavior) {
+          var iw = itemWidth();
+          var target = (i + originalCount) * iw; // account for prepended clones
+          track.scrollTo({
+            left: Math.round(target),
+            behavior: behavior || "smooth",
+          });
+        }
+
+        // initial position
+        currentIndex = 0;
+        setTimeout(function () {
+          scrollToIndex(currentIndex, "auto");
+        }, 60);
+
+        prev &&
+          prev.addEventListener("click", function () {
+            currentIndex = normalizeIndex(currentIndex - 1);
+            scrollToIndex(currentIndex, "smooth");
+          });
+        next &&
+          next.addEventListener("click", function () {
+            currentIndex = normalizeIndex(currentIndex + 1);
+            scrollToIndex(currentIndex, "smooth");
+          });
+
+        // pointer drag for mouse & touch
+        var isDown = false;
+        var startX = 0;
+        var scrollLeft = 0;
+        track.tabIndex = 0;
+
+        track.addEventListener("pointerdown", function (e) {
+          isDown = true;
+          track.classList.add("dragging");
+          startX = e.clientX;
+          scrollLeft = track.scrollLeft;
+          try {
+            track.setPointerCapture(e.pointerId);
+          } catch (err) {}
+        });
+        track.addEventListener("pointermove", function (e) {
+          if (!isDown) return;
+          var x = e.clientX;
+          var walk = startX - x;
+          track.scrollLeft = scrollLeft + walk;
+        });
+        track.addEventListener("pointerup", function (e) {
+          isDown = false;
+          track.classList.remove("dragging");
+          try {
+            track.releasePointerCapture(e.pointerId);
+          } catch (err) {}
+        });
+        track.addEventListener("pointerleave", function () {
+          isDown = false;
+          track.classList.remove("dragging");
+        });
+
+        // keyboard support
+        track.addEventListener("keydown", function (e) {
+          if (e.key === "ArrowRight") {
+            next && next.click();
+          }
+          if (e.key === "ArrowLeft") {
+            prev && prev.click();
+          }
+        });
+
+        // update currentIndex on scroll, and handle clone-region adjustments after scrolling stops
+        var scrollEndTimeout = null;
+        track.addEventListener("scroll", function () {
+          // update current index roughly
+          var iw = itemWidth();
+          var rawIndex = Math.round(track.scrollLeft / iw) - originalCount;
+          currentIndex = normalizeIndex(rawIndex);
+
+          // debounce scroll end
+          if (scrollEndTimeout) clearTimeout(scrollEndTimeout);
+          scrollEndTimeout = setTimeout(function () {
+            // ensure we're snapped exactly to the index
+            scrollToIndex(currentIndex, "smooth");
+
+            // if we're in cloned region (due to momentum), jump invisibly to original
+            var left = track.scrollLeft;
+            var start = iw * originalCount;
+            var end = iw * (originalCount * 2);
+            if (left < start - iw / 2) {
+              // jumped into prepended clones
+              track.scrollLeft = left + iw * originalCount;
+            } else if (left > end + iw / 2) {
+              // jumped into appended clones
+              track.scrollLeft = left - iw * originalCount;
+            }
+          }, 120);
+        });
+
+        // hide arrows if no overflow (consider clones)
+        function updateArrows() {
+          if (!prev || !next) return;
+          if (track.scrollWidth <= track.clientWidth + 1) {
+            prev.style.display = "none";
+            next.style.display = "none";
+          } else {
+            prev.style.display = "flex";
+            next.style.display = "flex";
+          }
+        }
+
+        window.addEventListener("resize", updateArrows);
+        updateArrows();
+      })();
+    </script>
+  </body>
+</html>
+<!-- site audio control -->
+<script src="site-audio.js" defer></script>
+<script src="site-spa.js" defer></script>
